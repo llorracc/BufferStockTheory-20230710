@@ -1,0 +1,40 @@
+
+  \begin{table}
+    \centering
+    \renewcommand{\arraystretch}{1.3}
+    \caption{Model Characteristics Calculated from Parameters}\label{table:Calibration}
+    \sbox{\TblBox}{
+      \begin{tabular}{|c|ccl|c|}
+        \hline
+        % \multicolumn{5}{|l|}{Model Characteristics Calculated From Parameters}  \\ \hline
+        & \multicolumn{3}{c|}{}                                      & Approximate \\
+        & \multicolumn{3}{c|}{}                                       & Calculated \\
+        Description                                 & \multicolumn{3}{c|}{Symbol and Formula}                       & Value \\ \hline
+        \hyperlink{FHWFacDefn}{Finite Human Wealth Factor}                 & $\RNrm^{-1}$ & $\equiv$ & $\PermGroFac/\Rfree$                    & 0.990 \\
+        \hyperlink{VAFacDefn}{PF Value of Autarky Factor} & $\beth$ & $\equiv$ & $\DiscFac \PermGroFac^{1-\CRRA}$                    & 0.932 \\
+        \hyperlink{InvEPermShkEInv}{Growth Compensated Permanent Shock}            & $\InvEPermShkInv $ & $\equiv$ & $ (\EPermShkInv)^{-1}$               & 0.990 \\
+        \hyperlink{PermGroFacAdj}{Uncertainty-Adjusted Growth}                 & $\PermGroFacAdj $ & $\equiv$ & $ \PermGroFac \InvEPermShkInv$        & 1.020 \\
+        \hyperlink{uInvEuPermShk}{Utility Compensated Permanent Shock}                & $\uInvEuPermShk $ & $\equiv$ & $ (\Ex[\PermShk^{1-\CRRA}])^{1/(1-\CRRA)}$ & 0.990 \\
+        \hyperlink{PermGroFacAdj}{Utility Compensated Growth}                     & $\PermGroFacAdj $ & $\equiv$ & $ \PermGroFac \uInvEuPermShk$        & 1.020 \\
+        \hyperlink{APFacDefn}{Absolute Patience Factor}                    & $\APFac_{\phantom{\Rfree}} $ & $\equiv$ & $ (\Rfree \DiscFac)^{1/\CRRA}$                & 0.999 \\
+        \hyperlink{RPFacDefn}{Return Patience Factor}                      & $\RPFac$ & $\equiv$ & $\APFac/\Rfree $     & 0.961 \\
+        \hyperlink{GPFacRawDefn}{\phantom{Modified }Growth Patience Factor}    & $\GPFacRaw$ & $\equiv$ & $\APFac/\PermGroFac $      & 0.970 \\
+        \hyperlink{GPFacRawDefn}{Modified Growth Patience Factor}                      & $\GPFacNrm$ & $\equiv$ & $ \APFac/\PermGroFacAdj$& 0.980 \\
+        \hyperlink{VAFacDefn}{Value of Autarky Factor}         & $\DiscAltuAdj $ & $\equiv$ & $ \DiscFac \PermGroFac^{1-\CRRA}\uInvEuPermShk^{1-\CRRA}$       & 0.941 \\
+        \hyperlink{WRIC}{Weak Return Impatience Factor}         & $\pZero^{1/\CRRA} \APFac $ & $\equiv$ & $ (\pZero \DiscFac \Rfree)^{1/\CRRA}$       & 0.071 \\ \hline
+      \end{tabular}
+    } % End \sbox
+
+    \settowidth\TableWidth{\usebox{\TblBox}}
+    \savebox{\TblShrunkBox}{
+      \settowidth{\TblShrunk}{\usebox{\TblBox}}
+      \resizebox{0.9\textwidth}{!}{\begin{minipage}{\TblShrunk}
+          \usebox{\TblBox}
+        \end{minipage}}
+    }
+
+    \usebox{\TblShrunkBox}
+
+
+%    \parbox{\textwidth}{\footnotesize The \href{https://econ-ark.org/materials/bufferstocktheory-dashboard?launch}{dashboard} permits experimentation with alternative parameter values.}
+  \end{table}

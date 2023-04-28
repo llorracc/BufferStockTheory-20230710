@@ -1,0 +1,15 @@
+  \begin{theorem}\iflabelexists{thm:target}{}{\label{thm:target}} % Don't define it if already defined
+    For the nondegenerate solution to the problem defined in Section~\ref{subsec:Setup} when {\FVAC}, {\WRIC}, and {\GICMod} all hold, there exists a unique cash-on-hand-to-permanent-income ratio $\mTrgNrm>0$ such that
+    \begin{equation}
+      \Ex_t [{\mNrm}_{t+1}/\mNrm_t] = 1 \mbox{~if~} \mNrm_t = \mTrgNrm.
+      \iflabelexists{eq:mTarget}{}{\label{eq:mTarget}} % Don't define it if already defined
+    \end{equation}
+    Moreover, $\mTrgNrm$ is a point of `stability' in the sense that
+    \begin{equation}
+      \iflabelexists{eq:stability}{}{\label{eq:stability}} % Don't define it if already defined
+      \begin{split}
+        \forall {\mNrm}_t\in(0,\mTrgNrm),      \,\,& \Ex_t [{\mNrm}_{t+1}] > {\mNrm}_t  \\
+        \forall {\mNrm}_t\in(\mTrgNrm,\infty), \,\,& \Ex_t [{\mNrm}_{t+1}] < {\mNrm}_t.
+      \end{split}
+    \end{equation}
+  \end{theorem}

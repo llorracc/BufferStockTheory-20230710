@@ -1,0 +1,246 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+% (setq TeX-parse-self t)
+\input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
+\input{./.econtexRoot}\input{\LaTeXInputs/econtex_onlyinsubfile}
+\onlyinsubfile{\externaldocument{\LaTeXGenerated/BufferStockTheory}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled;
+
+% \renewcommand{\LtxDir}{}
+\onlyinsubfile{\renewcommand{\LtxDir}{../LaTeX/}}
+
+% \renewcommand\LineNumber{\the\inputlineno}
+
+\newcommand{\EOP}{\bar}
+\newcommand{\MOP}{}
+\newcommand{\BOP}{\underline}
+
+
+\begin{document}
+% {\linenumbers}
+
+
+\hypertarget{ApndxSolutionSteps}{}
+
+Conventions for this document:
+\begin{enumerate}
+\item A `stage' has at most three `moments':
+  \begin{enumerate}
+  \item \texttt{EOP} is the end of the stage, when (e.g.) $\EOP{v}=$\texttt{v\_of\_a} is defined
+  \item \texttt{MOP} is middle of stage, when (e.g.) $\MOP{v}(m)=$\texttt{v\_of\_m} is defined
+  \item \texttt{BOP} is beginning of stage, when (e.g.) $\BOP{v}(k)=$\texttt{v\_of\_k} is defined
+  \end{enumerate}
+
+  and at 
+
+\end{enumerate}
+
+
+\section{The Problem}
+
+We start by assuming we are solving a problem exactly like the one in the \href{https://econ-ark.github.io/BufferStockTheory}{BufferStockTheory} (in the `normalized' section).
+%debug -- succeeds
+%\end{document}\endinput
+
+\begin{equation*}\label{eq:veqn}
+  \begin{split}
+    % \begin{align*}
+    \vFunc_{t}(\mNrm_{t})  & = \max_{{\{\cFunc\}}_{t}^{T}}~  \uFunc(\cFunc_{t}) +\DiscFac \Ex_{t}[\PermGroFac_{t+1}^{1-\CRRA}\vFunc_{t+1}({\mNrm}_{t+1})]  \\
+    & \mbox{s.t.}
+    \\ {\aNrm}_{t}  & = \mNrm_{t}-c_{t}
+    \\ {\kNrm}_{t+1} & = \aNrm_{t}/\PermGroFac_{t+1}
+    \\ {\bNrm}_{t+1}  & = {\kNrm}_{t+1}\Rfree = (\Rfree/\PermGroFac_{t+1})\aNrm_{t}  ~ = ~ \RNrm_{t+1}\aNrm_{t}
+    \\ \mNrm_{t+1}  & = \bNrm_{t+1}+\TranShkAll_{t+1}  ,
+                      %       \end{align*}
+  \end{split}
+\end{equation*}
+where $\RNrm_{t+1}\equiv (\Rfree/\PermGroFac_{t+1})$ is a `permanent-income-growth-normalized' return factor.
+
+
+%debug -- succeeds 
+%\end{document}\endinput
+
+\section{Details of the Solution Procedure}\label{sec:ApndxSolutionSteps}
+
+\makeatletter
+\newcommand{\leqnomode}{\tagsleft@true}
+\newcommand{\reqnomode}{\tagsleft@false}
+\renewcommand\tagform@[1]{\maketag@@@{\ignorespaces#1\unskip\@@italiccorr}}
+\makeatother
+\leqnomode
+\small
+
+We will be assuming that the key elements we need in order to solve the model are laid out in Dol[o/ARK] model files.
+\begin{align*}
+  \texttt{terminal.yaml} & - & \qquad \text{defines }\BOP{v}(k)=\texttt{terminal.v\_of\_k}=0
+ \\ \texttt{stage\_opt\_cns.yaml} & - & \qquad \text{defines full solution to consumption problem}
+ \\ \texttt{stage\_exp\_val.yaml} & - & \qquad \text{defines full solution to consumption problem}
+% \\ \texttt{stage\_opt\_shr.yaml} & - & \qquad \text{defines full solution to consumption problem}
+\end{align*}
+and that we can retrieve elements of those files at will.  For example, the assumption (likely incorrect at present) is that we can retrieve the reward function from \texttt{terminal} using the syntax \texttt{terminal.reward}.
+
+\pagebreak
+The solution can be built backwards as follows.  (The first column is the 1-indexed number of steps back from from the end of the problem. That is, the 1 in line 1 says that the first step sets the value function to $\EOP{v}(a)=0$, because we are assuming there is no bequest motive.
+For reasons that will become evident later, it will be useful to break the problem down into two sub-stages:
+
+
+\begin{align*}
+  \texttt{term\_v\_of\_m.yaml} & - & \qquad \text{defines }\BOP{v}(k)=\texttt{terminal.v\_of\_m}=0
+\end{align*}
+\begin{alignat}{3}
+\text{date} &      &   \notag \text{Equation} & \qquad                       & \qquad \texttt{step\_type} \qquad & \qquad \text{origin}
+\\ T        & ~~~~ &   \EOP{v}(a)             & = 0                          & \texttt{terminal.v\_of\_a}        & \qquad \text{defined}
+\\ T        & ~~~~ &   u(c)                   & =                            & \texttt{terminal.reward}          & \qquad \text{defined}
+\\ T        & ~~~~ &   \cFunc(m)                   & = m                          & \texttt{terminal.decision}        & \qquad \text{constructed} \label{step:cFuncmake}
+\\ T        & ~~~~ & \MOP{v}(m)               & = u(\cFunc(m)) + \beta \EOP{v}(a) & \texttt{terminal.v\_of\_m}        & \qquad \text{defined}
+\end{alignat}
+
+\begin{align*}
+  \texttt{term\_v\_of\_k.yaml} & - & \qquad \text{defines }\BOP{v}(k)=\texttt{terminal.v\_of\_m}=0
+\end{align*}
+
+\begin{alignat}{3}
+\text{date} &      &   \notag \text{Equation} & \qquad                       & \qquad \texttt{step\_type} \qquad & \qquad \text{origin}
+\\ T        & ~~~~ & \text{shocks:}           & \{\PermShk,\TranShkAll,\Risky\} & \texttt{terminal.exogenous}       & \qquad \text{defined} \label{step:term_exogenous}
+\\ T        & ~~~~ & \BOP{v}(k)               & = \Ex[\MOP{v}(m)]            & \texttt{terminal.v\_of\_k}        & \qquad \text{constructed} \label{step:term_expectorate}
+\end{alignat}
+
+%and we would therefore expect the terminal period to contain two substages: $\{\term\_v\_of\_m\}$ and $\{term\_v\_of\_k\}$
+
+The transition between period $T-1$ and period $T$ is
+\begin{alignat}{3}
+\text{date(s)}          &      &   \notag \text{Equation} & \qquad                   & \qquad \texttt{step\_type} \qquad & %\qquad \text{comment}
+\\ T-1\leftrightarrow T & ~~~~ & k_{t+1}                  & = a_{t}                  & \texttt{transition\_state}        &  \label{step:transtate}
+\\ T-1\leftrightarrow T & ~~~~ & \EOP{v}_{t}(a_{t})       & = \BOP{v}_{t+1}(k_{t+1}) & \texttt{transition\_value}        & \label{step:tranfunc}
+\end{alignat}
+
+We would again define the problem in period $T-1$ as having two substages:
+
+\texttt{cstage\_v\_of\_m}:
+\begin{alignat}{3}
+\text{date(s)}              &      &   \notag \text{Equation} & \qquad                          & \qquad \texttt{step\_type} \qquad & \qquad \text{comment}
+\\ T-1                    & ~~~~ & \beta                 & =                               & \texttt{stage\_opt\_cns.DiscFac}           & \label{step:discounting}
+\\ T-1                    & ~~~~ &   u(c)                & =                               & \texttt{stage\_opt\_cns.reward}            & 
+\\ T-1                    & ~~~~ &   \mathfrak{c}(a)     & =                               & \texttt{stage\_opt\_cns.EGM}               & \qquad \text{consumed}
+\\ T-1                    & ~~~~ &   \cFunc(m)                &                                 & \texttt{stage\_opt\_cns.decision}          & \qquad \text{constructed} \label{step:cFuncMake}
+\\ T-1                    & ~~~~ & \MOP{v}(m)                  & = u(\cFunc(m))+\beta \EOP{v}(m-\cFunc(m)) & \texttt{stage\_opt\_cns.v\_of\_m}          &
+\end{alignat}
+
+\texttt{cstage\_v\_of\_k}:
+\begin{alignat}{3}
+\text{date(s)}              &      &   \notag \text{Equation} & \qquad                          & \qquad \texttt{step\_type} \qquad & \qquad \text{comment}
+\\ T-1                    & ~~~~ & \text{shocks}    &                                 & \texttt{stage\_opt\_cns.exogenous}          & \label{step:stage_exogenous}
+\\ T-1                    & ~~~~ & \BOP{v}(k) & = \Ex[\MOP{v}(m)]                     & \texttt{stage\_opt\_cns.expect}          & \label{step:stage_expectorate}
+\end{alignat}
+
+
+This schema illustrates several points.
+
+
+\begin{enumerate}
+\item The choice of whether to identify the `shocks' as becoming known instantaneously after the beginning of period $T$ or instantaneously before the end of $T-1$ is mathematically and computationally arbitrary.
+  \begin{enumerate}
+    \item `arbitrary' in the sense that is just a question of labeling; the computations are identical whichever scheme is chosen
+  \item The scheme above is my preferred, new way of doing it, because we ran into confusions in the old way of doing things where the expectation now taken in step \ref{step:term_expectorate} was taken at the end of the prior period (resulting in the infamous Gothic $\mathfrak{v}$).  
+    \item The old scheme has the advantage (which is also its disadvantage) that the $k_{t+1}$ variable need not be defined.  We could just redefine step \ref{step:tranfunc} as $\EOP{v}_{t}(a_{t}) = \Ex_{t}[\MOP{v}_{t+1}(a_{t+1} \mathcal{R}_{t+1} + \theta_{t+1})]$ (where the new notation of $\EOP{v}$ is equivalent to the old $\mathfrak{v}(a)$, and $\mathcal{R}=\Rfree / (\psi \PermGroFac)$, and eliminate step \ref{step:transtate} as superflous.  
+
+  \end{enumerate}
+
+\pagebreak
+
+\item There is a clean separation between the `transition' phase (lines~\ref{step:transtate}-\ref{step:tranfunc}, which connects adjacent periods, and the remaining steps (\ref{step:discounting}-\ref{step:stage_expectorate}), which build the solution to the problem by executing a series of steps in order.  Let's call this collection of steps \texttt{stage\_opt\_cns-solve}.
+\item No subscripts are needed for variables used in \texttt{stage\_opt\_cns-solve} because the whole point of declaring this to be period $T$ is that no variable in that namespace can retrieve anything from any other period.
+  \item What we mainly care about is the consumption function, which is constructed in step \ref{step:cFuncMake}.  The exactly identical numerical consumption function is created regardless of which period we do the expectation calculations in.
+  \end{enumerate}
+
+
+  Now, if we define \texttt{transtage} as comprising steps \ref{step:transtate}-\ref{step:tranfunc}, the remainder of the problem is constructed by iterating the two elements:
+Then the problem in period $T-1$ is like this:
+\begin{alignat}{3}
+\text{date(s)}              &      &   \notag       \qquad \texttt{stage\_type} \qquad
+\\ T-2\leftrightarrow T-1 & ~~~~ & \text{\texttt{transtage}}
+\\ T-2 & ~~~~ & \text{\texttt{stage\_opt\_cns-solve}}
+\\ T-3\leftrightarrow T-2 & ~~~~ & \text{\texttt{transtage}}
+\\ T-3 & ~~~~ & \text{\texttt{stage\_opt\_cns-solve}}
+\end{alignat}
+
+It would consist of steps like this:
+\begin{alignat}{3}
+\text{date(s)}              &      &   \notag       \qquad \texttt{stage\_type} \qquad
+\\ T-2\leftrightarrow T-1 & ~~~~ & \text{\texttt{transtage}}
+\\ T-2 & ~~~~ & \text{\texttt{stage\_opt\_cns-solve}}
+\\ T-3\leftrightarrow T-2 & ~~~~ & \text{\texttt{transtage}}
+\\ T-3 & ~~~~ & \text{\texttt{stage\_opt\_cns-solve}}
+\end{alignat}
+
+Now suppose we want to add a portfolio stage to the problem.  Specifically, we will assume that right after the beginning of period $t$, before the shocks are realized, the consumer must make a choice about the proportion $\varsigma$ of capital $k$ to be committed to risky asset that will earn return $\Risky$ and the proportion $(1-\varsigma)$ that will earn $\Rfree$, for a combined portfolio return of $\mathbb{R}=\varsigma \Risky + (1-\varsigma)\Rfree = \Rfree+\varsigma(\Risky-\Rfree)$.
+
+The problem now has an extra stage to it:
+\begin{align*}
+  \BOP{v}(k) & = \max_{\varsigma} \Ex[\MOP{v}(\overbrace{(\mathbb{R}/(\PermGroFac \PermShk))k+\TranShkAll)}^{\equiv m})]
+\end{align*}
+
+The first order condition for this problem is well-known, and this whole portfolio optimization problem can therefore be bundled up into a \texttt{portfolio} stage that takes $k$ as a beginning-of-period input and yields $k$ and $\varsigma$ as outputs.
+
+Thanks to the modularity of the ways in which we have laid out the problem, it will now be possible simply to drop the portfolio stage into the appropriate point in the sequence of steps used earlier to define \texttt{stage\_opt\_cns-solve}.  Suppose we call the modified set of steps \texttt{stage\_opt\_cns-with-portfolio-solve}:\pagebreak
+\begin{alignat*}{3}
+\text{backsteps} &      &   \notag \text{Equation} & \qquad                                    & \qquad \texttt{step\_type} \qquad  & \qquad \text{comment}
+\\ 0             & ~~~~ & \beta                    & =                                         & \texttt{stage\_opt\_cns.DiscFac}   & %\label{step:discounting}
+\\ 1             & ~~~~ &   u(c)                   & =                                         & \texttt{stage\_opt\_cns.reward}    & 
+\\ 2             & ~~~~ &   \mathfrak{c}(a)        & =                                         & \texttt{stage\_opt\_cns.EGM}       & \qquad \text{consumed}
+\\ 3             & ~~~~ &   \cFunc(m)              &                                           & \texttt{stage\_opt\_cns.decision}  & \qquad \text{constructed} %\label{step:cFuncMake}
+\\ 4             & ~~~~ & \MOP{v}(m)               & = u(\cFunc(m))+\beta \EOP{v}(m-\cFunc(m)) & \texttt{stage\_opt\_cns.v\_of\_m}  &
+\\ 5             & ~~~~ & \text{shocks}            &                                           & \texttt{stage\_opt\_cns.exogenous} & %\label{step:stage_exogenous}
+\\ 6             & ~~~~ &                          & \texttt{portfolio}                        &
+\\ 7             & ~~~~ & \BOP{v}(k)               & = \Ex[\MOP{v}(m)]                         & \texttt{stage\_opt\_cns.expect}    & %\label{step:stage_expectorate}
+\end{alignat*}
+
+
+The beauty of this scheme is that we can now add a portfolio choice wherever we want:
+\begin{alignat}{3}
+\text{date(s)}            &      &   \notag      \qquad \texttt{stage\_type} \qquad
+\\ T-3\leftrightarrow T-4 & ~~~~ & \text{\texttt{transtage}}
+\\ T-4                    & ~~~~ & \text{\texttt{stage\_opt\_cns-with-portfolio-solve}}
+\\ T-4\leftrightarrow T-5 & ~~~~ & \text{\texttt{transtage}}
+\\ T-5                    & ~~~~ & \text{\texttt{stage\_opt\_cns-with-portfolio-solve}}
+\\ T-5\leftrightarrow T-6 & ~~~~ & \text{\texttt{transtage}}
+\\ T-6                    & ~~~~ & \text{\texttt{stage\_opt\_cns-solve}}
+\end{alignat}
+
+This sequence would define a problem in which the consumer has no portfolio choice in periods $T$ through $T-3$ but then has a portfolio choice in periods $T-4$ and $T-5$, followed by a $T-6$ with no portfolio choice again.  It is easy to seen now how this way of doing things allows us modularly to add as many stages as we like to a particular period.  (Each `stage' should be a simple problem disciplined by the requirements of a Dol[o/ARK] yaml file; but we can string together as may such stages as we like, as long as the requirements of the successive stages are mutually satisfied).
+
+Finally, notice that if we were to say that the job of the user of the toolkit is to provide an algorithm for the construction of the prior period, given the existing length of the problem, we sidestep all the complicated questions about defining in advance what is time varying and what is time invariant, etc.  Subject to the constraint of compatibility of the transition process between $t$ and $t-1$ the user has complete freedom to rewrite anything at all as the stage that comes before all the prior stages.  They can set the interest factor, the time preference rate, beliefs about the magnitude of stock market fluctuations, to whatever they like.  The constructive machinery would record the assumptions that would be made, and those records would define the sequence of values of (potentially) time-varying objects.
+
+Notice further how easy it is to add a discrete choice component to this.  Suppose the problem is one of durable good adjustment (buy/sell my car).  Call the two options ``stay'' and ``move''.  
+
+\begin{alignat}{3}
+\text{date(s)}              &      &   \notag      \qquad \texttt{stage\_type} \qquad
+\\ T-5\leftrightarrow T-6 & ~~~~ & \text{\texttt{transtage}}
+\\ T-6 & ~~~~ & \text{\{\texttt{stagemove},\texttt{stagestay}\}}
+\\ T-6 & ~~~~ & \text{\texttt{choose-move-or-stay}}
+\end{alignat}
+
+Where \texttt{choose-move-or-stay} just decides, for each configuration of state variables, which option yields the highest value.
+
+This is how we should have done things from the start.
+\end{document}
+
+\endinput
+
+% Local Variables:
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "Biber"  TeX-command-list)) TeX-command-list))
+% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex ../LaTeX/%s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") t)
+% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex ../LaTeX/%s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") t)
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=../LaTeX %S%(PDFout)"))
+% TeX-source-correlate-mode: t
+% TeX-parse-self: t
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n ../LaTeX/%o %b"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) ../LaTeX/%o"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
+% TeX-parse-all-errors: t
+% End:

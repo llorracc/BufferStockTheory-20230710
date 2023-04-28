@@ -1,0 +1,341 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
+\input{./.econtexRoot}\input{\LaTeXInputs/econtex_onlyinsubfile}
+\onlyinsubfile{\externaldocument{\LaTeXGenerated/BufferStockTheory}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled;
+
+\begin{document}
+\let\TableWidth\relax
+{\newlength\TableWidth}
+
+\hypertarget{ApndxLiqConstr}{}
+\section{Perfect Foresight Liquidity Constrained Solution}\label{sec:ApndxLiqConstr}
+
+Under perfect foresight in the presence of a liquidity constraint requiring $\bNrm \geq 0$, this appendix taxonomizes the varieties of the limiting consumption function $\cnstr{\cFunc}(\mNrm)$ that arise under various parametric conditions.
+
+\input{\TableDir/LiqConstrScenarios}
+
+Results are summarized in table~\ref{table:LiqConstrScenarios}.
+
+\subsection{If {GIC}~Fails}
+
+A consumer is `growth patient' if the perfect foresight growth
+impatience condition fails (\cncl{\GICRaw}, $1 < \APFac/\PermGroFac$).  Under
+\cncl{\GICRaw} the constraint does not bind at the lowest feasible value of $\mNrm_{t}=1$ because
+$1 < {(\Rfree\DiscFacRaw)}^{1/\CRRA}/\PermGroFac$ implies that spending
+everything today (setting $\cNrm_{t}=\mNrm_{t}=1$) produces lower
+marginal utility than is obtainable by reallocating a marginal unit of
+resources to the next period at return $\Rfree$:\footnote{The point at
+  which the constraint would bind (if that point could be attained) is
+  the $\mNrm=\cNrm$ for which $\uFunc^{\prime}(\cNrm_{\#}) = \Rfree
+  \DiscFacRaw \uFunc^{\prime}(\PermGroFac)$ which is $\cNrm_{\#} =
+  \PermGroFac/{(\Rfree \DiscFacRaw)}^{1/\CRRA}$ and the consumption function
+  will be defined by
+  $\cnstr{\cFunc}(\mNrm)=\min[\mNrm,\cNrm_{\#}+(\mNrm-\cNrm_{\#})\MPCmin
+  ]$.}
+\begin{equation}\begin{gathered}\begin{aligned}
+  1  & < {(\Rfree \DiscFacRaw)}^{1/\CRRA}\PermGroFac^{-1}    \notag
+  \\ 1  & < \Rfree \DiscFacRaw \PermGroFac^{-\CRRA} \notag
+  \\  \uFunc^{\prime}(1)  & < \Rfree \DiscFacRaw \uFunc^{\prime}(\PermGroFac)   \label{eq:EulerGICRawFailsEnd}.
+\end{aligned}\end{gathered}\end{equation}
+
+Similar logic shows that under these circumstances the constraint will never bind at $\mNrm=1$ for a constrained consumer with a finite horizon of $n$ periods, so for $\mNrm \geq 1$ such a consumer's consumption function will be the same as for the unconstrained case examined in the main text.
+
+\hypertarget{cnclGICRawcnclRICFHWC}{}
+
+\textit{{\RIC} fails, {\FHWC} holds.} If the \RIC~fails ($1 < \RPFac$) while the finite human wealth condition
+holds, the limiting value of this consumption function as $n \uparrow
+\infty$ is the degenerate function
+\begin{equation}\begin{gathered}\begin{aligned}
+  \cnstr{\cFunc}_{T-n}(\mNrm)  & = 0 (\bNrm_{t}+\hNrm).
+\end{aligned}\end{gathered}\end{equation}
+(that is, consumption is zero for any level of human or nonhuman wealth).
+
+\hypertarget{cnclGICRawcnclRICcnclFHWC}{}
+
+\textit{{\RIC}~fails, {\FHWC}~fails}. {\cncl{\FHWC}} implies that human wealth limits to $\hNrm =
+\infty$ so the consumption function limits to either
+$\cnstr{\cFunc}_{T-n}(\mNrm) = 0$ or
+$\cnstr{\cFunc}_{T-n}(\mNrm) = \infty$ depending on the relative
+speeds with which the MPC approaches zero and human wealth approaches
+$\infty$.\footnote{The knife-edge case is where $\APFac = \PermGroFac$, in
+  which case the two quantities counterbalance and the limiting
+  function is $\cnstr{\cFunc}(\mNrm)=\min[\mNrm,1]$.}
+
+\let\TableWidth\relax
+{\newlength\TableWidth}
+
+Thus, the requirement that the consumption function be nondegenerate
+implies that for a consumer satisfying \cncl{\GICRaw} we must impose
+the \RIC~(and the \FHWC~can be shown to be a consequence of \cncl{\GICRaw} and \RIC).  In
+this case, the consumer's optimal behavior is easy to describe.  We
+can calculate the point at which the unconstrained consumer would
+choose $\cNrm = \mNrm$ from Equation~\eqref{\localorexternallabel{eq:cFuncPFUnc}}:
+\begin{equation}\begin{gathered}\begin{aligned}
+  \mNrm_{\#}  & = (\mNrm_{\#}-1+\hNrm)\MPCmin
+  \\ \mNrm_{\#}(1-\MPCmin)  & = (\hNrm - 1)\MPCmin
+  \\ \mNrm_{\#}  & = (\hNrm - 1)\left(\frac{\MPCmin}{1-\MPCmin}\right)
+\end{aligned}\end{gathered}\end{equation}
+which (under these assumptions) satisfies $0 < \mNrm_{\#} < 1$.\footnote{Note that $0 < \mNrm_{\#}$ is implied by \RIC~and $ \mNrm_{\#}<1$ is implied by \cncl{\GICRaw}.}  For
+$\mNrm < \mNrm_{\#}$ the unconstrained consumer would choose to
+consume more than $\mNrm$; for such $\mNrm$, the constrained consumer
+is obliged to choose $\cnstr{\cFunc}(\mNrm) = \mNrm$.\footnote{As an
+  illustration, consider a consumer for whom $\APFac = 1$, $\Rfree
+  =1.01$ and $\PermGroFac = 0.99$.  This consumer will save the amount
+  necessary to ensure that growth in market wealth exactly offsets the
+  decline in human wealth represented by $\PermGroFac < 1$; total wealth
+  (and therefore total consumption) will remain constant, even as
+  market wealth and human wealth trend in opposite directions.}  For
+any $\mNrm > \mNrm_{\#}$ the constraint will never bind and the
+consumer will choose to spend the same amount as the unconstrained
+consumer, $\bar{\cFunc}(\mNrm)$.
+
+(\cite{StachurskiToda2019JET} obtain a similar lower bound on consumption and use it to study the tail behavior of the wealth distribution.)
+
+
+\subsection{If {GIC}~Holds}
+
+Imposition of the \GICRaw~reverses the inequality in~\eqref{\localorexternallabel{eq:EulerGICRawFailsEnd}}, and thus reverses the conclusion: A consumer who starts with $\mNrm_{t}=1$ will desire to consume more than 1.  Such a consumer will be constrained, not only in period $t$, but perpetually thereafter.
+
+Now define $\bNrm_{\#}^{n}$ as the $\bNrm_{t}$ such that an unconstrained consumer holding $\bNrm_{t}=\bNrm_{\#}^{n}$ would behave so as to arrive in period $t+n$ with $\bNrm_{t+n}=0$ (with $\bNrm_{\#}^{0}$ trivially equal to 0); for example, a consumer with $\bNrm_{t-1}=\bNrm_{\#}^{1}$ was on the `cusp' of being constrained in period $t-1$: Had $b_{t-1}$ been infinitesimally smaller, the constraint would have been binding (because the consumer would have desired, but been unable, to enter period $t$ with negative, not zero, $b$).  Given
+the \GICRaw, the constraint certainly binds in period $t$ (and thereafter) with resources of $\mNrm_{t}=\mNrm_{\#}^{0}=1+\bNrm_{\#}^{0}=1$: The consumer cannot spend more (because constrained), and will not choose to spend less (because impatient), than $c_{t}=\cNrm_{\#}^{0}=1$.
+
+We can construct the entire `prehistory' of this consumer leading up to $t$ as follows.
+Maintaining the assumption that the constraint has never bound in the past,
+$\cNrm$ must have been growing according to $\GPFacRaw$, so consumption $n$ periods in the past must have been
+\begin{equation}\begin{gathered}\begin{aligned}
+  \cNrm_{\#}^{n}  & = \GPFacRaw^{-n} \cNrm_{t} = \GPFacRaw^{-n}. \label{eq:cPreHist}
+\end{aligned}\end{gathered}\end{equation}
+
+The PDV of consumption from $t-n$ until $t$ can thus be computed as
+\begin{equation}\begin{gathered}\begin{aligned}
+  \mathbb{C}_{t-n}^{t}  & = \cNrm_{t-n}(1+\APFac/\Rfree+ \cdots + {(\APFac/\Rfree)}^{n}) \notag
+  % \\   \mathbb{C}_{t-n}^{t}  & = \cNrm_{t-n}(1+\GPFacRaw/\RNrm+ \cdots + (\GPFacRaw/\RNrm)^{n}) \notag
+  \\  & = \cNrm_{\#}^{n}(1+\RPFac+ \cdots + \RPFac^{n}) \notag
+  \\  & = \GPFacRaw^{-n}\left(\frac{1-\RPFac^{n+1}}{1-\RPFac}\right) \label{PDVc}
+  \\  & = \left(\frac{\GPFacRaw^{-n}-\RPFac}{1-\RPFac}\right) 
+\end{aligned}\end{gathered}\end{equation}
+and note that the consumer's human wealth between $t-n$ and $t$ (the relevant
+time horizon, because from $t$ onward the consumer will be constrained
+and unable to access post-$t$ income) is
+\begin{equation}\begin{gathered}\begin{aligned}
+  \hNrm_{\#}^{n}  & = 1+ \cdots +\RNrm^{-n}
+\end{aligned}\end{gathered}\end{equation}
+while the intertemporal budget constraint says
+\begin{eqnarray*}
+  \mathbb{C}_{t-n}^{t}  & = \bNrm_{\#}^{n}+\hNrm_{\#}^{n}
+\end{eqnarray*}
+from which we can solve for the $\bNrm_{\#}^{n}$ such that
+the consumer with $\bNrm_{t-n} = \bNrm_{\#}^{n}$ would
+unconstrainedly plan (in period $t-n$) to arrive in period $t$ with
+$\bNrm_{t}=0$:
+\begin{equation}\begin{gathered}\begin{aligned}
+  \bNrm_{\#}^{n} & =  \mathbb{C}_{t-n}^{t} - \overbrace{\left(\frac{1-\RNrm^{-(n+1)}}{1-\RNrm^{-1}}\right)}^{\hNrm_{\#}^{n}} \label{eq:bPound}.
+\end{aligned}\end{gathered}\end{equation}
+
+Defining $\mNrm_{\#}^{n}=\bNrm_{\#}^{n}+1$, consider the function
+$\cnstr{\cFunc}(\mNrm)$ defined by linearly connecting the points
+$\{\mNrm_{\#}^{n},\cNrm_{\#}^{n}\}$ for integer values of $n \geq 0$
+(and setting $\cnstr{\cFunc}(\mNrm)=\mNrm$ for $\mNrm<1$).  This
+function will return, for any value of $\mNrm$, the optimal value of
+$\cNrm$ for a liquidity constrained consumer with an infinite horizon.
+The function is piecewise linear with `kink points' where the slope
+discretely changes; for infinitesimal $\epsilon$ the MPC of a
+consumer with assets $\mNrm=\mNrm_{\#}^{n}-\epsilon$ is discretely
+higher than for a consumer with assets $\mNrm=\mNrm_{\#}^{n}+\epsilon$
+because the latter consumer will spread a marginal dollar over more
+periods before exhausting it.
+
+In order for a unique consumption function to be defined by this sequence~\eqref{\localorexternallabel{eq:bPound}} for the entire domain of positive real values of $b$, we need $\bNrm_{\#}^{n}$ to become arbitrarily large with $n$.  That is, we need
+\begin{equation}\begin{gathered}\begin{aligned}
+  \lim_{n \rightarrow \infty} \bNrm_{\#}^{n} = \infty. \label{eq:bToInfty}
+\end{aligned}\end{gathered}\end{equation}
+
+\subsubsection{If {FHWC}~Holds}
+The \FHWC~requires $\RNrm^{-1} < 1$, in which case the second term in~\eqref{\localorexternallabel{eq:bPound}} limits to a constant as $n \uparrow \infty$, and~\eqref{\localorexternallabel{eq:bToInfty}} reduces to a requirement that
+\begin{eqnarray*}
+  \lim_{n \rightarrow \infty} \left(\frac{\GPFacRaw^{-n}-{(\RPFac/\GPFacRaw)}^{n}\RPFac}{1-\RPFac}\right)  & = \infty
+  \\  \lim_{n \rightarrow \infty} \left(\frac{\GPFacRaw^{-n}-\RNrm^{-n}\RPFac}{1-\RPFac}\right)  & = \infty
+  \\  \lim_{n \rightarrow \infty} \left(\frac{\GPFacRaw^{-n}}{1-\RPFac}\right)  & = \infty.
+\end{eqnarray*}
+Given the \GICRaw~$\GPFacRaw^{-1}>1$, this will hold iff the \RIC~holds, $\RPFac < 1$.  But given that the \FHWC~$\Rfree > \PermGroFac$ holds, the {\GICRaw} is stronger (harder to satisfy) than the \RIC;\@ thus, the~\FHWC~and the \GICRaw~together imply the \RIC, and so a well-defined solution exists.  Furthermore, in the limit as $n$ approaches infinity, the difference between the limiting constrained consumption function and the unconstrained consumption function becomes vanishingly small, because the date at which the constraint binds becomes arbitrarily distant, so the effect of that constraint on current behavior shrinks to nothing.  That is,
+\begin{equation}\begin{gathered}\begin{aligned}
+  \lim_{m \rightarrow \infty}\cnstr{\cFunc}(m) - \bar{\cFunc}(m) = 0.
+\end{aligned}\end{gathered}\end{equation}
+
+% Finally, the main text shows that the \GICRaw~is a stronger condition than the PF-FVR; that is, \GICRaw~$\Rightarrow$ PF-FVR.
+
+\subsubsection{If {FHWC}~Fails}
+If the \FHWC~fails, matters are a bit more complex.
+
+\begin{comment}
+  As noted in the main text, the Finite Value Requirement for such a consumer
+  requires $\GPFacRaw < (\Rfree/\PermGroFac)^{1/\CRRA}$,\footnote{A
+    unique well-defined nondegenerate limiting consumption function can
+    actually exist even if a nondegenerate value function does not.  But
+    the parametric combinations required for this are somewhat peculiar
+    (including both $\Rfree < 1$ and $\PermGroFac < 1$); but we restrict our attention
+    to the more useful and plausible cases with finite value.} which is stronger (holds
+  in strictly fewer circumstances) than the \GICRaw~condition $\GPFacRaw < 1$.
+  Thus, the \GICRaw~is an implication of $\cncl{\FHWC}$.
+\end{comment}
+
+Given failure of \FHWC,~\eqref{\localorexternallabel{eq:bToInfty}} requires
+\begin{equation}\begin{gathered}\begin{aligned}
+  % \lim_{n \rightarrow \infty} \left(\frac{\GPFacRaw^{-n}-\RNrm^{-n}\RPFac}{1-\RPFac}\right) + \left(\frac{1-\RNrm^{-(n+1)}}{\RNrm^{-1}-1}\right)  & = \infty \\
+  \lim_{n \rightarrow \infty} \left(\frac{\RNrm^{-n}\RPFac-\GPFacRaw^{-n}}{\RPFac-1}\right) + \left(\frac{1-\RNrm^{-(n+1)}}{\RNrm^{-1}-1}\right)  & = \infty \notag
+  \\   \lim_{n \rightarrow \infty} \left(\frac{\RPFac}{\RPFac-1}-\frac{\RNrm^{-1}}{\RNrm^{-1}-1}\right)\RNrm^{-n}-\left(\frac{\GPFacRaw^{-n}}{\RPFac-1}\right)  & = \infty \label{eq:FHWCfails} 
+  % \\   \lim_{n \rightarrow \infty} \left(\frac{\RPFac(\RNrm^{-1}-1)}{(\RNrm^{-1}-1)(\RPFac-1)}-\frac{\RNrm^{-1}(\RNrm^{-1}-1)}{(\RNrm^{-1}-1)(\RPFac-1)}\right)\RNrm^{-n}-\left(\frac{\GPFacRaw^{-n}}{\RPFac-1}\right)  & = \infty. 
+\end{aligned}\end{gathered}\end{equation}
+\hypertarget{PFGICHoldsFHWCFailsRICFailsDiscuss}{}
+
+\noindent {\bf If \RIC~Holds}.  When the \RIC~holds, rearranging~\eqref{\localorexternallabel{eq:FHWCfails}} gives
+\begin{eqnarray*}
+  \lim_{n \rightarrow \infty} \left(\frac{\GPFacRaw^{-n}}{1-\RPFac}\right)-\RNrm^{-n}\left(\frac{\RPFac}{1-\RPFac}+\frac{\RNrm^{-1}}{\RNrm^{-1}-1}\right)  & = \infty
+\end{eqnarray*}
+and for this to be true we need
+\begin{eqnarray*}
+  \GPFacRaw^{-1}  & > \RNrm^{-1}
+  \\ \PermGroFac/\APFac  & > \PermGroFac/\Rfree
+  \\ 1  & > \APFac/\Rfree
+\end{eqnarray*}
+which is merely the \RIC~again.  So the problem has a solution if the \RIC~holds.  Indeed,
+we can even calculate the limiting MPC from
+\begin{equation}\begin{gathered}\begin{aligned}
+  \lim_{n \rightarrow \infty} \MPC^{n}_{\#}  & = \lim_{n \rightarrow \infty} \left(\frac{\cNrm_{\#}^{n}}{\bNrm_{\#}^{n}}\right) \label{eq:MPCConstrLim}
+\end{aligned}\end{gathered}\end{equation}
+which with a bit of algebra\footnote{
+  Calculate the limit of
+  \begin{equation}\begin{gathered}\begin{aligned}
+    \left(\frac{\GPFacRaw^{-n}}{\GPFacRaw^{-n}/(1-\RPFac) - (1-\RNrm^{-1}\RNrm^{-n})/(1-\RNrm^{-1})}\right)  & = \left(\frac{1}{1/(1-\RPFac) + \RNrm^{-n}\RNrm^{-1}/(1-\RNrm^{-1})}\right)
+  \end{aligned}\end{gathered}\end{equation}} can be shown to asymptote to the MPC in the perfect foresight model:\footnote{For an example of this configuration of parameters, see the notebook \texttt{doApndxLiqConstr.nb} in the Mathematica software  archive.}
+\begin{equation}\begin{gathered}\begin{aligned}
+  \lim_{m \rightarrow \infty} \cnstr{\pmb{\MPC}}(\mNrm)  & = 1-\RPFac.
+\end{aligned}\end{gathered}\end{equation}
+
+\noindent {\bf If \RIC~Fails}.  Consider now the \cncl{\RIC} case, $\RPFac > 1$.  We can rearrange~\eqref{\localorexternallabel{eq:FHWCfails}}as
+\begin{eqnarray}
+  \lim_{n \rightarrow \infty} \left(\frac{\RPFac(\RNrm^{-1}-1)}{(\RNrm^{-1}-1)(\RPFac-1)}-\frac{\RNrm^{-1}(\RPFac-1)}{(\RNrm^{-1}-1)(\RPFac-1)}\right)\RNrm^{-n}-\left(\frac{\GPFacRaw^{-n}}{\RPFac-1}\right)  & = \infty.  
+\end{eqnarray}
+which makes clear that with $\cncl{\FHWC} \Rightarrow \RNrm^{-1} > 1$ and $\cncl{\RIC} \Rightarrow \RPFac > 1$ the numerators and denominators of both terms multiplying $\RNrm^{-n}$ can be seen transparently to be positive.  So, the terms multiplying
+$\RNrm^{-n}$ in~\eqref{\localorexternallabel{eq:FHWCfails}} will be positive if
+\begin{eqnarray*}
+  \RPFac \RNrm^{-1} - \RPFac  & > & \RNrm^{-1}\RPFac-\RNrm^{-1}
+  \\ \RNrm^{-1}  & > & \RPFac
+  \\ \PermGroFac  & > & \APFac
+\end{eqnarray*}
+which is merely the \GICRaw~which we are maintaining.  So the first term's limit is $+\infty$.  The
+combined limit will be $+\infty$ if the term involving $\RNrm^{-n}$
+goes to $+\infty$ faster than the term involving $-\GPFacRaw^{-n}$ goes to
+$-\infty$; that is, if
+\begin{eqnarray*}
+  \RNrm^{-1}  & > & \GPFacRaw^{-1}
+  \\ \PermGroFac/\Rfree  & > & \PermGroFac/\APFac
+  \\ \APFac/\Rfree  & > & 1
+\end{eqnarray*}
+which merely confirms the starting assumption that the \RIC~fails.
+
+What is happening here is that the $\cNrm_{\#}^{n}$ term is increasing backward in time at rate dominated in the limit by $\PermGroFac/\APFac$ while the $\bNrm_{\#}$ term is increasing at a rate dominated by $\PermGroFac/\Rfree$ term and
+\begin{eqnarray}
+  \PermGroFac/\Rfree & > & \PermGroFac/\APFac 
+\end{eqnarray}
+because $\cncl{\RIC} \Rightarrow \APFac > \Rfree$.
+
+Consequently, while $\lim_{n \uparrow \infty} \bNrm_{\#}^{n} = \infty$, the limit of the \textit{ratio} $\cNrm_{\#}^{n}/\bNrm_{\#}^{n}$ in~\eqref{eq:MPCConstrLim} is zero.
+Thus, surprisingly, the problem has a well defined solution with
+infinite human wealth if the \RIC~fails.  It remains true that \cncl{\RIC}
+implies a limiting MPC of zero,
+\begin{equation}\begin{gathered}\begin{aligned}
+  \lim_{\mNrm \rightarrow \infty} \cnstr{\pmb{\MPC}}(\mNrm)   & = 0,
+\end{aligned}\end{gathered}\end{equation}
+but that limit is approached gradually, starting from a positive value, and consequently the consumption function is \textit{not} the degenerate $\cnstr{\cFunc}(\mNrm)=0$.  (Figure~\ref{fig:PFGICHoldsFHWCFailsRICFails} presents an example for $\CRRA=2$, $\Rfree=0.98$, $\DiscFacRaw = 1.00$, $\PermGroFac = 0.99$; note that the horizontal axis is bank balances $\bNrm = \mNrm-1$; the part of the consumption function below the depicted points is uninteresting --- $\cNrm = \mNrm$ --- so not worth plotting).
+
+
+\input{\FigDir/PFGICHoldsFHWCFailsRICFails}
+
+
+\begin{comment}
+  We can rewrite the expression for $\mathbb{C}$ from \eqref{\localorexternallabel{PDVc}} as:
+  \begin{eqnarray*}
+    \mathbb{C}_{t-n}^{t}  & =  \left(\frac{\GPFacRaw^{-n}-\GPFacRaw^{-n}\RPFac^{n+1}}{1-\RPFac}\right)
+    \\  & =  \left(\frac{\GPFacRaw^{-n}-\RPFac\PermGroFac^{n}/\Rfree^{n}}{1-\RPFac}\right)
+    \\  & =  \left(\frac{(\PermGroFac/\APFac)^{n}-\RPFac(\PermGroFac/\Rfree)^{n}}{1-\RPFac}\right)
+    \\  & =  (\PermGroFac/\Rfree)^{n}\left(\frac{(\Rfree/\APFac)^{n}-\RPFac}{1-\RPFac}\right)
+    \\ \RNrm^{n}\mathbb{C}_{t-n}^{t}   & =  \left(\frac{(\Rfree/\APFac)^{n}-\RPFac}{1-\RPFac}\right)
+  \end{eqnarray*}
+  but \cncl{\RIC} implies that $\APFac > \Rfree$ so
+  \begin{eqnarray*}
+    \lim_{n \rightarrow \infty} \RNrm^{n}\mathbb{C}_{t-n}^{t}   & =  \left(\frac{-\RPFac}{1-\RPFac}\right)
+  \end{eqnarray*}
+  which means that in the limit
+  \begin{equation}\begin{gathered}\begin{aligned}
+    \lim_{n \rightarrow \infty} \RNrm^{n}\bNrm_{\#}^{n}  & =  \left(\frac{-\RPFac}{1-\RPFac}\right) - \RNrm^{n}\left(\frac{1-\RNrm^{-1}\RNrm^{-n}}{1-\RNrm^{-1}}\right) %\label{eq:bPoundLim}
+    \\  & = \left(\frac{-\RPFac}{1-\RPFac} + \frac{-\RNrm^{-1}}{1-\RNrm^{-1}}\right) - \left(\frac{\RNrm^{n}}{1-\RNrm^{-1}}\right)
+  \end{aligned}\end{gathered}\end{equation}
+  so we can solve for the limiting $n$ as a function of $\bNrm$ via
+  \begin{equation}\begin{gathered}\begin{aligned}
+    \bNrm + \left(\frac{1}{1-\RNrm^{-1}}\right)  & = \RNrm^{-\hat{n}}\left(\frac{-\RPFac}{1-\RPFac} + \frac{-\RNrm^{-1}}{1-\RNrm^{-1}}\right)
+    \\ \log \left(\bNrm + \left(\frac{1}{1-\RNrm^{-1}}\right)\right)  & = -\hat{n} \log \RNrm + \log \left(\frac{-\RPFac}{1-\RPFac} + \frac{-\RNrm^{-1}}{1-\RNrm^{-1}}\right)
+    \\ \frac{\log \left(\frac{-\RPFac}{1-\RPFac} + \frac{-\RNrm^{-1}}{1-\RNrm^{-1}}\right)-\log \left(\bNrm + \left(\frac{1}{1-\RNrm^{-1}}\right)\right)}{\log \RNrm }  & = \hat{n}
+  \end{aligned}\end{gathered}\end{equation}
+  which defines $\hat{\nFunc}(\bNrm)$ which yields an approximation to the
+  value of $n$ associated with a given $\bNrm$.
+
+  We can directly compute
+  \begin{equation}\begin{gathered}\begin{aligned}
+    \nabla  & = \bNrm - \bNrm_{\#}^{\hat{n}}
+  \end{aligned}\end{gathered}\end{equation}
+  and can obtain a better appxoimation to the correct $n$ from
+  \begin{equation}\begin{gathered}\begin{aligned}
+    \hat{\hat{n}} 
+    & = \end{aligned}\end{gathered}\end{equation}
+
+  We can obtain a more exact approximation to the correct ${n}$ by defining
+  \begin{equation}\begin{gathered}\begin{aligned}
+    \nabla(n) \equiv   \lim_{n \rightarrow \infty}\RNrm^{n}\mathbb{C}_{t-n}^{t}-\RNrm^{n}\mathbb{C}_{t-n}^{t}  & =  \left(\frac{\RPFac^{-n}}{1-\RPFac}\right).
+  \end{aligned}\end{gathered}\end{equation}
+  from which we can obtain the difference between the approximate and the exact $\mathbb{C}_{t-n}^{t}$ as $\RNrm^{-n}\nabla(n)$ and
+
+
+  For this $n$ and
+  $\bNrm$ we can obtain the corresponding
+  $\cNrm=\GPFacRaw^{-\nFunc(\bNrm)}$.  Note, however, that this is {\it not}
+  the level of $\cNrm$ directly associated with $\bNrm$ on the true
+  consumption function, because we used only a limiting approximation to
+  the correct $n$ rather than the correct $n$.
+
+
+  The limiting difference can be obtained by realizing that
+  \begin{equation}\begin{gathered}\begin{aligned}
+    \nabla(n) \equiv   \lim_{n \rightarrow \infty}\RNrm^{n}\mathbb{C}_{t-n}^{t}-\RNrm^{n}\mathbb{C}_{t-n}^{t}  & =  \left(\frac{\RPFac^{-n}}{1-\RPFac}\right).
+  \end{aligned}\end{gathered}\end{equation}
+  and so
+
+\end{comment}
+
+We can summarize as follows.  Given that the \GICRaw~holds, the interesting question is whether the \FHWC~holds.  If so, the RIC~automatically holds, and the solution limits into the solution to the unconstrained problem as $\mNrm \uparrow \infty$.  But even if the \FHWC~fails, the problem has a well-defined and nondegenerate solution, whether or not the \RIC~holds.
+
+Although these results were derived for the perfect foresight case, we know from work elsewhere in this paper and in other places that the perfect foresight case is an upper bound for the case with uncertainty.  If the upper bound of the MPC in the perfect foresight case is zero, it is not possible for the upper bound in the model with uncertainty to be greater than zero, because for any $\kappa > 0$ the level of consumption in the model with uncertainty would eventually exceed the level of consumption in the absence of uncertainty.
+
+\cite{maTodaRich} characterize the limits of the MPC in a more general framework that allows for capital and labor income risks in a Markovian setting with liquidity constraints, and find that in that much more general framework the limiting MPC is also zero.% chktex 2
+
+\onlyinsubfile{\pagebreak\input{\LaTeXInputs/bibliography_blend}}
+
+\end{document}\endinput
+
+% Local Variables:
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  t  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) LaTeX/%s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "bibtex LaTeX/%s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% tex-bibtex-command: "bibtex ../LaTeX/*"
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=../LaTeX %S%(PDFout)"))
+% TeX-source-correlate-mode: t
+% TeX-parse-self: t
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n ../LaTeX/%o %b"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) ../LaTeX/%o"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
+% TeX-parse-all-errors: t
+% End:

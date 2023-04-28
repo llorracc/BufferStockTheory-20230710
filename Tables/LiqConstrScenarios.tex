@@ -1,0 +1,33 @@
+\newsavebox{\LiqConstrScenarios}
+\begin{table}[b]
+  \centering
+  \caption{Appendix: Perfect Foresight Liquidity Constrained Taxonomy}
+    \iflabelexists{table:LiqConstrScenarios}{}{\label{table:LiqConstrScenarios}} % Don't define it if already defined
+  \sbox{\LiqConstrScenarios}{
+    \begin{tabular}{|l|rcl|l|}
+      \multicolumn{5}{c}{For constrained $\cnstr{c}$ and unconstrained $\bar{\cFunc}$ consumption functions } \\ \hline
+Main Condition     &\multicolumn{3}{c|}{~}         & \\ % & Example \\
+~~~~Subcondition   & \multicolumn{3}{c|}{Math}             & \multicolumn{1}{c|}{ Outcome, Comments or Results} % & Example
+\\ \hline
+\cncl{\GICRaw}      & $\phantom{\APFac/\Rfree}$ & $\phantom{~<~}1        {~<~}$ & $        {\APFac/\PermGroFac}$  & Constraint never binds for $\mNrm \geq 1$ %& %$\{\APFac,\PermGroFac\}=\{1,0.98\}$
+      \\ ~~~~ and \RIC~          & $        {\APFac/\Rfree}$ & $        {~<~}1\phantom{~<~}$ & $\phantom{\APFac/\PermGroFac}$  & ~~~\FHWC~holds ($\Rfree > \PermGroFac$); %$\cnstr{\cFunc}(\mNrm) = \bar{\cFunc}(\mNrm)$ for $\mNrm \geq 1$
+      \\                         &                           &                               & $\phantom{\APFac/\PermGroFac}$  & ~~~$\cnstr{\cFunc}(\mNrm) = \bar{\cFunc}(\mNrm)$ for $\mNrm \geq 1$
+      \\ ~~~~ and \cncl{\RIC}   & $\phantom{\APFac/\Rfree}$ & $\phantom{~<~}1        {~<~}$  & $        {\APFac/\Rfree}$       & ~~~$\cnstr{\cFunc}(\mNrm)$ is degenerate: $\cnstr{\cFunc}(\mNrm)=0$  %&
+\\ \GICRaw~            & $        {\APFac/\PermGroFac}$ & $        {~<~}1\phantom{~<~}$ & $\phantom{\APFac/\Rfree}$  & Constraint binds in finite time $\forall~\mNrm$ % &
+\\ ~~~~ and \RIC~           & $        {\APFac/\Rfree}$  & $      {~<~}1\phantom{~<~}$ & $\phantom{\APFac/\PermGroFac}$   & ~~~~\FHWC~may or may not hold
+\\ ~~~~               &                          &                             &                          & ~~~~~~~$\lim_{m \uparrow \infty}\bar{\cFunc}(\mNrm) - \cnstr{\cFunc}(\mNrm) = 0$ % & ~~$\{1.02,1.02^{-1},1.02\}$
+\\ ~~~~               &                          &                             &                          & ~~~~~~~$\lim_{m \uparrow \infty}\cnstr{\MPCFunc}(\mNrm) = \MPCmin$ % & ~~$\{1.02,1.02^{-1},1.02\}$
+\\ ~~~~ and \cncl{\RIC}   &                          & $\phantom{~<~}1         ~<~ $ & $         \APFac/\Rfree$ & $\cncl{\FHWC}$
+\\ ~~~~~~             &                          &                             &                          & ~~~~~$\lim_{\mNrm \uparrow \infty} \cnstr{\MPCFunc}(\mNrm) =  0$               % & ~~$\{0.98,1.00, 0.99, 2\} $
+\\ \hline
+\end{tabular}
+} % End \sbox
+
+\settowidth\TableWidth{\usebox{\LiqConstrScenarios}}
+\usebox{\LiqConstrScenarios}
+\\ \medskip
+\parbox{\TableWidth}{\raggedright \footnotesize Conditions are applied from left to right; for example, the second row indicates conclusions in the case where \cncl{\GICRaw} and \RIC~both hold, while the third row indicates that when the \GICRaw~and the \RIC~both fail, the consumption function is degenerate; the next row indicates that whenever the \GICRaw holds, the constraint will bind in finite time.}
+
+\end{table}
+
+

@@ -1,0 +1,16 @@
+  \begin{theorem}
+    \iflabelexists{thm:MSSBalExists}{}{\label{thm:MSSBalExists}} % Don't define it if already defined
+    For the nondegenerate solution to the problem defined in Section~\ref{subsec:Setup} when {\FVAC}, {\WRIC}, and {\GICRaw} all hold, there exists a unique pseudo-steady-state cash-on-hand-to-income ratio $\mBalLvl>0$ such that
+    \begin{equation}
+      \Ex_t [\PermShk_{t+1}{\mNrm}_{t+1}/\mNrm_t] = 1 \mbox{~if~} \mNrm_t = \mBalLvl.
+      \iflabelexists{eq:mBalLvl}{}{\label{eq:mBalLvl}} % Don't define it if already defined
+    \end{equation}
+    Moreover, $\mBalLvl$ is a point of stability in the sense that
+    \begin{equation}
+      \iflabelexists{eq:stabilityStE}{}{\label{eq:stabilityStE}} % Don't define it if already defined
+      \begin{split}
+        \forall {\mNrm}_t\in(0,\mBalLvl),      \,\,& \Ex_{t}[\mLvl_{t+1}]/\mLvl_{t} > \PermGroFac \\
+        \forall {\mNrm}_t\in(\mBalLvl,\infty), \,\,& \Ex_{t}[\mLvl_{t+1}]/\mLvl_{t} < \PermGroFac.
+      \end{split}
+    \end{equation}
+  \end{theorem}

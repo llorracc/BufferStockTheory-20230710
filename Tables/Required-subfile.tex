@@ -1,0 +1,114 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
+\input{./.econtexRoot}\input{\LaTeXInputs/econtex_onlyinsubfile}
+\providecommand{\TblName}{}
+\renewcommand{\TblName}{Required}
+\onlyinsubfile{\externaldocument{\LaTeXGenerated/BufferStockTheory}} 
+
+\begin{document}
+% This needed to be a subfile to tweak the use of the makecell \thead commands
+% without having to recompile the whole document
+
+\renewcommand\theadalign{tl}
+
+\notinsubfile{\renewcommand{\TableDir}{./Tables}} % Not sure why this needs to be redefined here; if not, tries to write to ../../Tables
+
+\let\TableWidth\relax
+\newlength\TableWidth
+\begin{verbatimwrite}{\TableDir/\TblName}
+
+  \begin{table}
+    \centering
+    \caption{Sufficient Conditions for Nondegenerate$^{\ddagger}$ Solution} 
+    \iflabelexists{table:Required}{}{\label{table:Required}} % Don't define it if already defined
+    \sbox{\TblBox}{
+      \begin{tabular}{|l|l|l|} \hline
+        \multicolumn{1}{|l|}{Consumption Model(s)}                                                                             & \multicolumn{1}{c|}{Conditions}         & \multicolumn{1}{c|}{Comments}
+        % \\\multicolumn{1}{|r|}{ Reference            }                                                                         &                                         & \multicolumn{1}{c|}{Logic}
+        \\ \hline
+        \multicolumn{1}{|l|}{$\bar{\cFunc}(m)$: PF Unconstrained}                                                              & \RIC, \FHWC$^{\circ}$                   & \RIC$\Rightarrow |\vFunc(\mNrm)|< \infty$; \FHWC$ \Rightarrow 0 < |\vFunc(\mNrm)|$
+        \\ {$\underline{\cFunc}(m)=\MPCmin \mNrm$}                                                                &                                         & PF model with no human wealth ($h=0$)
+        \\\multicolumn{1}{|l|}{}                                                                         &                                          \multicolumn{1}{c|}{} &                                          \multicolumn{1}{c|}{} 
+        \\ \multicolumn{1}{|r|}{\hyperlink{PF-Unconstrained-Solution}{Section \ref{subsec:PFUncon}:}}         &                                         & {\RIC} prevents { $\bar{\cFunc}(\mNrm)=\underline{\cFunc}(\mNrm)=0$}
+        \\ \multicolumn{1}{|r|}{\hyperlink{PF-Unconstrained-Solution}{Section \ref{subsec:PFUncon}:}}         &                                         & {\FHWC} prevents $\bar{\cFunc}(\mNrm)=\infty$
+        \\ \multicolumn{1}{|r|}{Eq \eqref{eq:FHWCandPFFVACimplyRIC}:}                                                                              &                                         & {\PFFVAC}+{\FHWC} $\Rightarrow$ {\RIC}         
+        \\ \multicolumn{1}{|r|}{{Eq \eqref{eq:GICandFHWCimplyPFFVAC}}:}                                                                              &                                         & {\GICRaw}+{\FHWC} $\Rightarrow$ {\PFFVAC}         
+        \\ \hline\hline \multicolumn{1}{|l|}{$\cnstr{\cFunc}(m)$: PF Constrained}                                              & \cncl{\GICRaw}, \RIC                    & {\FHWC} holds $(\PermGroFac < \APFac < \Rfree \Rightarrow \PermGroFac < \Rfree)$
+        \\
+        \multicolumn{1}{|r|}{\hyperlink{PF-Constrained-Solution}{Section \ref{subsec:PFCon}:}}                &                                         & $\cnstr{\cFunc}(\mNrm)=\bar{\cFunc}(\mNrm)$ for $\mNrm > \mNrm_{\#} < 1$
+        \\                                                                                                                        &                                         & (\cncl{\RIC} would yield $\mNrm_{\#}=0$ so $\cnstr{\cFunc}(\mNrm)=0$)
+        % \\ \cline{2-3} \hyperlink{ApndxLiqConstr}{Appendix \ref{sec:ApndxLiqConstr}} & \GICRaw,\RIC                            & $\lim_{\mNrm \rightarrow \infty} \cnstr{\cNrm}(\mNrm)=\bar{\cNrm}(\mNrm), \lim_{\mNrm \rightarrow \infty} \cnstr{\MPCFunc}(\mNrm)=\MPCmin$
+        \\ \cline{2-3}  \multicolumn{1}{|r|}{\hyperlink{ApndxLiqConstr}{Appendix \ref{sec:ApndxLiqConstr}}:} & \GICRaw,\RIC                            & $\lim_{\mNrm \rightarrow \infty} \cnstr{\cNrm}(\mNrm)=\bar{\cNrm}(\mNrm), \lim_{\mNrm \rightarrow \infty} \cnstr{\MPCFunc}(\mNrm)=\MPCmin$                                                                                                                                                                       
+        \\                                                                                                                        &                                         & kinks where horizon to $b=0$ changes$^{\ast}$
+        \\ \cline{2-3}\multicolumn{1}{|r|}{\hyperlink{ApndxLiqConstr}{Appendix \ref{sec:ApndxLiqConstr}}:}  & \GICRaw,\cncl{\RIC}                     & $\lim_{\mNrm \rightarrow \infty}  \cnstr{\MPCFunc}(\mNrm)=0$
+        \\                                                                                                                        &                                         & kinks where horizon to $b=0$ changes$^{\ast}$
+        \\ \hline\hline \multicolumn{1}{|l|}{$\usual{\cFunc}(\mNrm)$:  \hyperlink{Uncertainty-Modified-Conditions}{Friedman/Muth}
+        }                                                                                                                       & Section \ref{subsec:LimitsAsmtToInfty}, & $\underline{\cFunc}(\mNrm) < \usual{\cFunc}(\mNrm) < \bar{\cFunc}(\mNrm)$ %\phantom{\RIC, \FHWC$^{\ast\ast}$  }
+        \\                                                                                                                      & Section \ref{subsec:LimitsAsmtToZero}   & $\underline{\vFunc}(\mNrm) < \usual{\vFunc}(\mNrm) < \bar{\vFunc}(\mNrm)$ %
+        % \\ \hline\hline \multicolumn{1}{|l|}{$\usual{\cFunc}(\mNrm)$: Friedman/Muth}                                          & \FVAC, \WRIC                            & \WRIC is weaker than \RIC 
+        % \\ {``Buffer Stock'' Subset}                                                                                       &                                         & \GICMod $\Rightarrow \exists $ `individual target' $\mTrgNrm$
+        % \\ { Section \ref{subsec:onetarget}}                                                                             &                                         & \GICRaw $\Rightarrow \exists $ `individual steady-state' $\mBalLvl$
+                                                                                                                                                                       
+        \\ \cline{2-3}\multicolumn{1}{|r|}{Section \ref{subsec:contraction}:}                            & \FVAC, \WRIC                      & Sufficient for Contraction
+        \\ \multicolumn{1}{|r|}{Section \ref{sec:discussConvergence}:}                               &                      & {\WRIC}{ is} weaker than \RIC 
+        \\  \multicolumn{1}{|r|}{Figure \ref{fig:Inequalities}:}                                        &                                 & {\FVAC}{ is} stronger than \PFFVAC 
+        \\ \multicolumn{1}{|r|}{Section \ref{subsubsec:WhenTheRICHolds}:}
+                                                                                                                               &                                 & \cncl{\FHWC}+{\RIC} $\Rightarrow ${\GICRaw}$, \lim_{\mNrm \rightarrow \infty} \usual{\MPCFunc}(\mNrm)=\MPCmin$
+        \\  \multicolumn{1}{|r|}{Section \ref{subsubsec:WhenTheRICFails}:}                                        &                                 & \cncl{\RIC}  $\Rightarrow $\cncl{\FHWC}$, \lim_{\mNrm \rightarrow \infty} \usual{\MPCFunc}(\mNrm)=0$
+        \\ \cline{3-3}\multicolumn{1}{|r|}{Section \ref{subsec:onetarget}:}                                        &                                 & ``Buffer Stock Saving'' Conditions
+        \\ \multicolumn{1}{|r|}{Section \ref{subsubsec:mSteadyState}:}                                        &                                 & \phantom{-Nrm}{\GICRaw} $\Rightarrow  \exists\phantom{~}\mBalLvl \phantom{~}\text{s.t.}\phantom{~} 0 < \mBalLvl < \infty$ %: Steady-State
+        \\ \multicolumn{1}{|r|}{Section \ref{subsubsec:mTarget}:}                                        &                                 & {\GICMod} $\Rightarrow \exists \phantom{~} \mTrgNrm \phantom{~} \text{s.t.}\phantom{~} 0 < \mTrgNrm < \infty$ %: Target
+        % \\ \hline\hline \multicolumn{1}{|l|}{$\usual{\cFunc}(\mNrm)$: Friedman/Muth} & \RIC, \FHWC                      & $\underline{\cFunc}(\mNrm) < \usual{\cFunc}(\mNrm) < \bar{\cFunc}(\mNrm)$
+        % \\ {``Buffer Stock'' Subset}                                         &                                 & \GICMod $\Rightarrow \exists $ `individual target' $\mTrgNrm$
+        % \\ { Section \ref{subsec:onetarget}}                                         &                                 & \GICRaw~$\Rightarrow \exists $ `individual steady-state' $\mBalLvl$
+                                                                                                                           
+        \\ \hline \multicolumn{3}{c}{}
+      \end{tabular}
+    } % End \sbox
+
+    \settowidth\TableWidth{\usebox{\TblBox}}
+    \savebox{\TblShrunkBox}{
+      \settowidth{\TblShrunk}{\usebox{\TblBox}}
+      \resizebox{\textwidth}{!}{\begin{minipage}{\TblShrunk}
+          \usebox{\TblBox}
+        \end{minipage}}
+    }
+
+    \usebox{\TblShrunkBox}
+
+
+    \parbox{\textwidth}{\raggedright \footnotesize         $^{\ddagger}$For feasible $\mNrm$ satisfying $0 < \mNrm < \infty$, a nondegenerate limiting consumption function defines a unique optimal value of $\cNrm$ satisfying $0 < \cNrm(m) < \infty$; a nondegenerate limiting value function defines a corresponding unique value of $-\infty < \vFunc(\mNrm) < 0$ .\\
+      ~~$^{\circ}${\RIC}, \FHWC~are necessary as well as sufficient for the perfect foresight case.~~$^{\ast}$That is, the first kink point in $\cNrm(\mNrm)$ is $\mNrm_{\#}$ s.t. for $\mNrm < \mNrm_{\#}$ the constraint will bind now, while for $\mNrm > \mNrm_{\#}$ the constraint will bind one period in the future.  The second kink point corresponds to the $\mNrm$ where the constraint will bind two periods in the future, etc.\\
+      ~~$^{\ast\ast}$In the Friedman/Muth model, the {\RIC}+{\FHWC} are sufficient, but \textit{not} necessary for nondegeneracy} 
+  \end{table}
+  
+\end{verbatimwrite}
+\clearpage
+\input{\TableDir/Required}
+
+
+
+
+\end{document}
+% Delete up to four existing variants of BibTeX 
+% Local Variables:
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "Biber"  TeX-command-list)) TeX-command-list))
+% eval: (add-to-list 'TeX-command-list	'("BibTeX" "%(bibtex) ../LaTeX/%s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=../LaTeX %S%(PDFout)"))
+% TeX-source-correlate-mode: t
+% TeX-source-correlate-start-server: 0
+% TeX-parse-self: t
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n ../LaTeX/%o %b"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) ../LaTeX/%o"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
+% End:
+
+

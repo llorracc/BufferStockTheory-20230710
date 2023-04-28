@@ -1,0 +1,1 @@
+-e git://github.com/econ-ark/HARK.git@95494d87c41540fd505a3576717addd70a8cefd9#egg=econ_ark

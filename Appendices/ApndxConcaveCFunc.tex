@@ -1,0 +1,313 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
+\input{./.econtexRoot}\input{\LaTeXInputs/econtex_onlyinsubfile} 
+
+\onlyinsubfile{\externaldocument{\LaTeXGenerated/BufferStockTheory}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled;
+\begin{document}
+
+\section{\texorpdfstring{$\cFunc$}{c} Functions Exist, are Concave, and Differentible}\label{sec:ApndxConcaveCFunc}
+
+To show that~\eqref{\localorexternallabel{eq:veqn}} defines a sequence of continuously differentiable strictly increasing concave functions $\{\cFunc_{T},\cFunc_{T-1},\ldots,\cFunc_{T-k}\}$, we start with a definition.  We will say that a function $\nFunc(z)$ is `nice' if it satisfies
+\begin{quote}
+  \begin{enumerate}\setlength{\itemsep}{0.0ex}
+  \item $\nFunc(z)$ is well-defined iff $z>0$
+
+  \item $\nFunc(z)$ is strictly increasing
+
+  \item $\nFunc(z)$ is strictly concave
+
+  \item $\nFunc(z)$ is $ \mathbf{C}^{3}$
+
+  \item $\nFunc(z)<0$
+
+  \item $\lim_{z\downarrow 0}~\nFunc(z) =-\infty $.
+
+  \end{enumerate}
+\end{quote}
+
+
+(Notice that an implication of niceness is that $\lim_{z \downarrow 0} \nFunc^{\prime}(z) = \infty$.)
+
+Assume that some $\vFunc_{t+1}$ is nice.  Our objective is to show that this
+implies $\vFunc_{t}$ is also nice; this is sufficient to establish that
+$\vFunc_{t-n}$ is nice by induction for all $n > 0$ because $\vFunc_{T}(\mNrm)
+=\uFunc(\mNrm) $ and $\uFunc(\mNrm)=\mNrm^{1-\CRRA}/(1-\CRRA)$ is nice by inspection.
+
+\hypertarget{BoroCnstNat}{}
+Now define an end-of-period value function $\mathfrak{v}_{t}(a) $ as
+\begin{equation*}
+  \mathfrak{v}_{t}(a) =\DiscFac \Ex_{t}\left[{\PermGroFac}_{t+1}^{1-\CRRA}\vFunc_{t+1}( {\mathcal{R}}_{t+1} a+{\TranShkAll}_{t+1}) \right].% \label{eq:vEnd}
+\end{equation*}
+
+Since there is a positive probability that $\TranShkAll_{t+1}$ will
+attain its minimum of zero and since $\mathcal{R}_{t+1}>0$, it
+is clear that $\lim_{\aNrm \downarrow 0} \mathfrak{v}_{t}(a) = -\infty$
+and $\lim_{\aNrm \downarrow 0} \mathfrak{v}^{\prime}_{t}(a) = \infty$.  So
+$\mathfrak{v}_{t}(a) $ is well-defined iff $\aNrm>0$; it is similarly
+straightforward to show the other properties required for $\mathfrak{v}_{t}(a) $ to
+be nice.  (See \cite{hiraguchiBSProofs}.)
+
+Next define $\underline{\vFunc}_{t}(\mNrm,\cNrm)$ as
+\begin{equation}
+  \underline{\vFunc}_{t}(\mNrm,\cNrm)=\uFunc(c)+\mathfrak{v}_{t}(\mNrm-c)
+\end{equation}
+which is $\mathbf{C}^{3}$ since $\mathfrak{v}_{t}$ and $\uFunc$ are both
+$\mathbf{C}^{3}$, and note that our problem's value function defined
+in~\eqref{\localorexternallabel{eq:veqn}} can be written as
+\begin{equation}\begin{gathered}\begin{aligned}
+      \vFunc_{t}(\mNrm)  & =  \max_{\cNrm}~\underline{\vFunc}_{t}(\mNrm,\cNrm).
+    \end{aligned}\end{gathered}\end{equation}
+
+$\underline{\vFunc}_{t}$ is well-defined if and only if $0<c<m$.  Furthermore,
+$\lim_{c \downarrow
+  0}\underline{\vFunc}_{t}(\mNrm,\cNrm)=\lim_{c\uparrow m} \underline{\vFunc}_{t}(\mNrm,\cNrm)=-\infty $, $\frac{\partial ^{2}\underline{\vFunc}_{t}(\mNrm,\cNrm)}{\partial c^{2}}%
+<0$, $\lim_{c \downarrow 0}\frac{\partial \underline{\vFunc}_{t}(\mNrm,\cNrm)}{\partial c}%
+=+\infty $, and $\lim_{c\uparrow m} \frac{\partial \underline{\vFunc}_{t}(\mNrm,\cNrm)}{%
+  \partial c}=-\infty $. It follows that the $\cFunc_{t}(\mNrm)$ defined by
+\begin{equation}\begin{gathered}\begin{aligned}
+      \cFunc_{t}(\mNrm)  & = \underset{0<c<m}{\arg \max }~\underline{\vFunc}_{t}(\mNrm,\cNrm)
+    \end{aligned}\end{gathered}\end{equation}
+exists and is unique, and~\eqref{\localorexternallabel{eq:veqn}} has an internal
+solution that satisfies
+\begin{equation}
+  \uFunc^{\prime }(\cFunc_{t}(\mNrm))=\mathfrak{v}_{t}^{\prime }(\mNrm-\cFunc_{t}(\mNrm))  \label{eq:consumptionf}.
+\end{equation}
+
+
+Since both $\uFunc$ and $\mathfrak{v}_{t}$ are strictly concave, both
+$\cFunc_{t}(\mNrm)$ and $\aFunc_{t}(\mNrm)=\mNrm-\cFunc_{t}(\mNrm)$
+are strictly increasing. Since both $\uFunc$ and $\mathfrak{v}_{t}$ are
+three times continuously differentiable, using~\eqref{\localorexternallabel{eq:consumptionf}} we can conclude that
+$\cFunc_{t}(\mNrm)$ is continuously differentiable and
+\begin{equation}\begin{gathered}\begin{aligned}
+      \cFunc_{t}^{\prime }(\mNrm)  & = \frac{\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mNrm))  }{\uFunc^{\prime \prime }(\cFunc_{t}(\mNrm))+\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mNrm))}.
+    \end{aligned}\end{gathered}\end{equation}
+
+Similarly we can easily show that $\cFunc_{t}(\mNrm)$ is twice
+continuously differentiable (as is $\aFunc_{t}(\mNrm)$) (See
+Appendix~\ref{sec:CIsTwiceDifferentiable}.)  This implies that
+$\vFunc_{t}(\mNrm)$ is nice, since
+$\vFunc_{t}(\mNrm)=\uFunc(\cFunc_{t}(\mNrm))+\mathfrak{v}_{t}({\aFunc}_{t}(\mNrm))$.
+
+\hypertarget{cFunc-is-Twice-Continuously-Differentiable}{}
+\section{
+  \texorpdfstring{$\cFunc_{t}(\mNrm)$}{c} is Twice Continuously Differentiable}\label{sec:CIsTwiceDifferentiable}
+
+First we show that $\cFunc_{t}(\mNrm)$ is $\mathbf{C}^{1}$.  Define $y$ as $y\equiv m+dm$.  Since $\uFunc^{\prime }\left( \cFunc_{t}(y)\right) -\uFunc^{\prime }\left(
+  \cFunc_{t}(\mNrm)\right) =\mathfrak{v}_{t}^{\prime
+}({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mNrm))$ and $
+\frac{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mNrm)}{dm}=1-\frac{\cFunc_{t}(y)-\cFunc_{t}(\mNrm)}{dm}$,
+\begin{align*}
+  % \lefteqn{
+  \frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mNrm))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mNrm)} %  }
+  & =   
+    \left( \frac{\uFunc^{\prime }\left( \cFunc_{t}(y)\right) -\uFunc^{\prime }\left( \cFunc_{t}(\mNrm)\right) }{\cFunc_{t}(y)-\cFunc_{t}(\mNrm)}+\frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mNrm))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mNrm)}\right) \frac{\cFunc_{t}(y)-\cFunc_{t}(\mNrm)}{dm}
+\end{align*}
+Since $\cFunc_{t}$ and $\aFunc_{t}$ are continuous and increasing, $\underset{
+  dm\rightarrow +0}{\lim }\frac{\uFunc^{\prime }\left( \cFunc_{t}(y)\right) -\uFunc^{\prime
+  }\left( \cFunc_{t}(\mNrm)\right) }{\cFunc_{t}(y)-\cFunc_{t}(\mNrm)}<0$ and
+$\underset{dm\rightarrow+0}{\lim }\frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mNrm))}{
+  {\aFunc}_{t}(y)-{\aFunc}_{t}(\mNrm)}< 0$
+are satisfied. Then $\frac{\uFunc^{\prime }\left(
+    \cFunc_{t}(y)\right) -\uFunc^{\prime }\left( \cFunc_{t}(\mNrm)\right) }{\cFunc_{t}(y)-\cFunc_{t}(\mNrm)}+
+\frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mNrm))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mNrm)}
+<0$ for sufficiently small $dm$.
+Hence we obtain a well-defined equation:
+
+\begin{equation*}
+  \frac{\cFunc_{t}(y)-\cFunc_{t}(\mNrm)}{dm}=\frac{\frac{\mathfrak{v}_{t}^{\prime
+      }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mNrm))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mNrm)}}{\frac{\uFunc^{\prime
+      }\left( \cFunc_{t}(y)\right) -\uFunc^{\prime }\left( \cFunc_{t}(\mNrm)\right) }{
+      \cFunc_{t}(y)-\cFunc_{t}(\mNrm)}+\frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mNrm))
+    }{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mNrm)}}.
+\end{equation*}
+This implies that the right-derivative, $\cFunc_{t}^{\prime +}(\mNrm)$ is
+well-defined and
+
+\begin{equation*}
+  \cFunc_{t}^{\prime +}(\mNrm)=\frac{\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mNrm))}{\uFunc^{\prime \prime
+    }(\cFunc_{t}(\mNrm))+\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mNrm))}.
+\end{equation*}
+
+Similarly we can show that $\cFunc_{t}^{\prime +}(\mNrm)=\cFunc_{t}^{\prime -}(\mNrm)$,
+which means $\cFunc_{t}^{\prime }(\mNrm)$ exists. Since $\mathfrak{v}_{t}$ is
+$\mathbf{C}^{3}$, $ \cFunc_{t}^{\prime }(\mNrm)$ exists and is continuous.
+$\cFunc_{t}^{\prime }(\mNrm)$ is differentiable because
+$\mathfrak{v}_{t}^{\prime \prime }$ is $\mathbf{C}^{1}$, $ \cFunc_{t}(\mNrm)$
+is $\mathbf{C}^{1}$ and $\uFunc^{\prime \prime
+}(\cFunc_{t}(\mNrm))+\mathfrak{v}_{t}^{\prime \prime }\left( {\aFunc}_{t}(\mNrm)\right)
+<0$. $\cFunc_{t}^{\prime \prime }(\mNrm)$ is given by
+\begin{equation}
+  \cFunc_{t}^{\prime \prime }(\mNrm)=\frac{{\aNrm}_{t}^{\prime }(\mNrm)\mathfrak{v}_{t}^{\prime \prime
+      \prime }({\aNrm}_{t})\left[ \uFunc^{\prime \prime }(c_{t})+\mathfrak{v}_{t}^{\prime \prime }({\aNrm}_{t})
+    \right] -\mathfrak{v}_{t}^{\prime \prime }({\aNrm}_{t})\left[ c_{t}^{\prime }\uFunc^{\prime \prime
+        \prime }(c_{t})+{\aNrm}_{t}^{\prime }\mathfrak{v}_{t}^{\prime \prime \prime }({\aNrm}_{t})\right] }{
+    {\left[ \uFunc^{\prime \prime }(c_{t})+\mathfrak{v}_{t}^{\prime \prime }({\aNrm}_{t})\right]}^{2}}.
+\end{equation}
+Since $\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mNrm))$ is continuous,
+$\cFunc_{t}^{\prime \prime }(\mNrm)$ is also continuous.
+
+\hypertarget{It-Is-A-Contraction-Mapping}{}
+\section{\texorpdfstring{$\TMap$}{T} Is a Contraction Mapping}\label{sec:Tcomplete}
+
+We must show that our operator $\TMap$ satisfies all of Boyd's
+conditions.
+
+Boyd's operator $\BoydT$ maps from $\mathcal{C}_{\boundFunc}(\mathscr{A},\mathscr{B})$ to $\mathcal{C}(\mathscr{A},\mathscr{B})$. A preliminary requirement is therefore that $\{\TMap{\zFunc}\}$ be continuous for any $\boundFunc-$bounded $\zFunc$, $\{\TMap{\zFunc}\}\in~\mathcal{C}(\mathbb{R}_{++},\mathbb{R})$.  This is not difficult to show; see \cite{hiraguchiBSProofs}.
+
+Consider condition (1). For this problem,
+\begin{align*}
+  \{\TMap{\mathfrak{\xFunc}}\}(\mNrm_{t}) &\mbox{~is}\underset{\cNrm_{t} \in
+                                            [\MPCminmin \mNrm_{t}, \MPCmax \mNrm_{t}]
+                                            }\max \left\{
+                                            \uFunc(c_{t})+\DiscFac \Ex_{t}\left[ {\PermGroFac}_{t+1}^{1-\CRRA }{\mathfrak{\xFunc}}
+                                            \left( {\mNrm}_{t+1}\right) \right] \right\}  \notag  \label{eq:condition1}
+  \\
+  \{\TMap{\mathfrak{\yFunc}}\}(\mNrm_{t}) &\mbox{~is}\underset{\cNrm_{t} \in
+                                            [\MPCminmin \mNrm_{t}, \MPCmax \mNrm_{t}]
+                                            }\max \left\{
+                                            \uFunc(c_{t})+\DiscFac \Ex_{t}\left[ {\PermGroFac}_{t+1}^{1-\CRRA }{\mathfrak{\yFunc}}
+                                            \left( {\mNrm}_{t+1}\right) \right] \right\} ,  \notag
+\end{align*}%
+so ${\mathfrak{\xFunc}}(\bullet) \leq {\mathfrak{\yFunc}}(\bullet)$ implies $\{\TMap{\mathfrak{\xFunc}}\}(\mNrm_{t}) \leq \{\TMap{\mathfrak{\yFunc}} \}(\mNrm_{t})$ by inspection.\footnote{For a fixed $\mNrm_{t}$, recall that ${\mNrm}_{t+1}$ is just a function of $c_{t}$ and the
+  stochastic shocks.}
+
+Condition (2) requires that $\{\TMap\mathbf{0}\}\in \mathcal{C}_{\boundFunc}\left(\mathscr{A},\mathscr{B}\right)$. By definition,
+\begin{equation*}
+  \{\TMap \mathbf{0}\}(\mNrm_{t}) = \max_{\cNrm_{t} \in
+    [\MPCminmin \mNrm_{t}, \MPCmax \mNrm_{t}]
+  }\left\{ \left( \frac{\cNrm_{t}^{1-\CRRA }}{1-\CRRA }\right) +\DiscFac 0\right\}
+\end{equation*}
+the solution to which is patently
+$\uFunc(\MPCmax \mNrm_{t})$. Thus, condition (2)
+will hold if ${(\MPCmax \mNrm_{t})}^{1-\CRRA}$ is $\boundFunc$-bounded, which it is if we use the
+bounding function
+\input{\econtexRoot/\EqDir/boundFunc}
+defined in the main text.
+
+Finally, we turn to condition (3), $\{\TMap({\zFunc} +\zeta\boundFunc
+)\}(\mNrm_{t}) \leq \{\TMap{\zFunc}\}(\mNrm_{t}) +\zeta \Shrinker
+\boundFunc(\mNrm_{t})$. The proof will be more compact if we define
+$\breve{\cFunc}$ and $\breve{\aFunc}$ as the consumption and assets
+functions\footnote{Section~\ref{sec:cExists} proves existence of a
+  continuously differentiable consumption function, which implies the
+  existence of a corresponding continuously differentiable assets
+  function.}  associated with $\TMap{\zFunc}$ and $\hat{\cFunc}$ and
+$\hat{\aFunc}$ as the functions associated with $\TMap({\zFunc+\zeta
+  \boundFunc})$; using this notation, condition (3) can be rewritten
+\begin{align*}
+  \uFunc(\hat{\cFunc})+\DiscFac \{\EEndMap (\zFunc+\zeta \boundFunc) \}(\hat{\aFunc})  & \leq  \uFunc(\breve{\cFunc})+\DiscFac \{\EEndMap \zFunc \}(\breve{\aFunc})  + \zeta \Shrinker \boundFunc.
+\end{align*}
+
+Now note that if we force the $\smile$ consumer to consume the amount that is
+optimal for the $\wedge$ consumer, value for the $\smile$ consumer must decline (at least weakly).  That is,
+\begin{align*}
+  \uFunc(\hat{\cFunc})+\DiscFac \{\EEndMap \zFunc \}(\hat{\aFunc})  & \leq \uFunc(\breve{\cFunc})+\DiscFac \{\EEndMap \zFunc \}(\breve{\aFunc})
+                                                                      .
+\end{align*}
+Thus, condition (3) will certainly hold under the stronger condition
+\begin{align*}
+  \uFunc(\hat{\cFunc})+\DiscFac\{\EEndMap (\zFunc+\zeta \boundFunc) \}(\hat{\aFunc})  & \leq  \uFunc(\hat{\cFunc})+\DiscFac\{\EEndMap \zFunc \}(\hat{\aFunc})  + \zeta \Shrinker \boundFunc
+  \\ \DiscFac\{\EEndMap (\zFunc+\zeta \boundFunc) \}(\hat{\aFunc})  & \leq  \DiscFac\{\EEndMap \zFunc  \}(\hat{\aFunc})  + \zeta \Shrinker \boundFunc
+  \\ \DiscFac\zeta \{\EEndMap \boundFunc \}(\hat{\aFunc})  & \leq  \zeta \Shrinker \boundFunc
+  \\ \DiscFac\{\EEndMap \boundFunc \}(\hat{\aFunc})  & \leq  \Shrinker \boundFunc
+  \\ \DiscFac\{\EEndMap \boundFunc \}(\hat{\aFunc})   & < \boundFunc %\label{eq:reqCondWeak}
+                                                        .
+\end{align*}
+where the last line follows because $0 < \Shrinker < 1$ by assumption.\footnote{The remainder of the proof could be reformulated using the second-to-last line at a small cost to intuition.}
+
+Using $\boundFunc(\mNrm)= \eta + \mNrm^{1-\CRRA}$
+and defining $\hat{\aNrm}_{t}=\hat{\aFunc}(\mNrm_{t})$, this condition is
+\begin{align*}
+  \DiscFac \Ex_{t}[{\PermGroFac}_{t+1}^{1-\CRRA}{(\hat{\aNrm}_{t}\RNrm_{t+1}+\TranShkAll_{t+1})}^{1-\CRRA}]-\mNrm_{t}^{1-\CRRA}  & < \eta(1-\underbrace{\DiscFac\Ex_{t}{\PermGroFac}_{t+1}^{1-\CRRA}}_{=\DiscAlt})
+\end{align*}
+which by imposing \PFFVAC~(equation~\eqref{\localorexternallabel{eq:PFFVAC}}, which says $\DiscAlt<1$) can be rewritten as:
+\begin{equation}\begin{gathered}\begin{aligned}
+      \eta>\frac{\DiscFac \Ex_{t}\left[{\PermGroFac}_{t+1}^{1-\CRRA}{(\hat{\aNrm}_{t}\RNrm_{t+1}+\TranShkAll_{t+1})}^{1-\CRRA}\right]-\mNrm_{t}^{1-\CRRA}}{1-\DiscAlt}\label{eq:KeyCondition}.
+    \end{aligned}\end{gathered}\end{equation}
+
+But since $\eta$ is an arbitrary constant that we can pick, the proof thus reduces to showing that the numerator of~\eqref{\localorexternallabel{eq:KeyCondition}} is bounded from above:
+\begin{equation}\begin{gathered}\begin{aligned}%
+      \lefteqn{\pNotZero\DiscFac\Ex_{t}\left[{\PermGroFac}_{t+1}^{1-\CRRA}{(\hat{\aNrm}_{t}\RNrm_{t+1}+\TranShkEmp_{t+1}/\pNotZero)}^{1-\CRRA}\right]
+        +\pZero\DiscFac\Ex_{t}\left[{\PermGroFac}_{t+1}^{1-\CRRA}{(\hat{\aNrm}_{t}\RNrm_{t+1})}^{1-\CRRA}\right]-\mNrm_{t}^{1-\CRRA}\notag~~~}  \\ 
+      ~~~\leq & \pNotZero\DiscFac\Ex_{t}\left[{\PermGroFac}_{t+1}^{1-\CRRA}{((1-\MPCmax)\mNrm_{t}\RNrm_{t+1}+\TranShkEmp_{t+1}/\pNotZero)}^{1-\CRRA}\right]
+      \\ & +\pZero\DiscFac\Rfree^{1-\CRRA}{((1-\MPCmax)\mNrm_{t})}^{1-\CRRA}-\mNrm_{t}^{1-\CRRA}\notag\\
+      ~~~= & \pNotZero\DiscFac\Ex_{t}\left[{\PermGroFac}_{t+1}^{1-\CRRA}{((1-\MPCmax)\mNrm_{t}\RNrm_{t+1}+\TranShkEmp_{t+1}/\pNotZero)}^{1-\CRRA}\right]
+      \\ & +\mNrm_{t}^{1-\CRRA}\left(\pZero\DiscFac\Rfree^{1-\CRRA}{\left(\pZero^{1/\CRRA}\frac{{(\Rfree\DiscFac)}^{1/\CRRA}}{\Rfree}\right)}^{1-\CRRA}-1\right)\notag\\
+      ~~~ =  & \pNotZero\DiscFac\Ex_{t}\left[{\PermGroFac}_{t+1}^{1-\CRRA}{((1-\MPCmax)\mNrm_{t}\RNrm_{t+1}+\TranShkEmp_{t+1}/\pNotZero)}^{1-\CRRA}\right]
+      +\mNrm_{t}^{1-\CRRA}\left(\underbrace{\pZero^{1/\CRRA}\frac{{(\Rfree\DiscFac)}^{1/\CRRA}}{\Rfree}}_{<1~\text{by
+            \WRIC}}-1\right) \label{eq:WRICBites} \\
+      ~~~< &\pNotZero\DiscFac\Ex_{t}\left[{\PermGroFac}_{t+1}^{1-\CRRA}{(\underline{\TranShkEmp}/\pNotZero)}^{1-\CRRA}\right]=\DiscAlt\pNotZero^{\CRRA}\underline{\TranShkEmp}^{1-\CRRA} \notag
+      .
+    \end{aligned}\end{gathered}\end{equation}
+
+We can thus conclude that equation~\eqref{\localorexternallabel{eq:KeyCondition}} will certainly hold for any:
+\begin{equation}\begin{gathered}\begin{aligned}
+      \eta>\underline{\eta}=\frac{\DiscAlt\pNotZero^{\CRRA}\underline{\TranShkEmp}^{1-\CRRA}}{1-\DiscAlt}
+    \end{aligned}\end{gathered}\end{equation}
+which is a positive finite number under our assumptions.
+
+The proof that $\TMap$ defines a contraction mapping under the
+conditions~\eqref{\localorexternallabel{eq:WRIC}} and~\eqref{\localorexternallabel{eq:FVAC}} is
+now complete.
+
+\subsection{
+  \texorpdfstring{$\TMap$}{T} and \texorpdfstring{$\vFunc$}{v}}
+
+In defining our operator $\TMap$ we made the restriction
+$\MPCminmin \mNrm_{t} \leq c_{t} \leq \MPCmax \mNrm_{t}$.  However,
+in the discussion of the consumption function bounds, we
+showed only (in~\eqref{\localorexternallabel{eq:cBounds}}) that $\MPCminmin_{t} \mNrm_{t} \leq \cFunc_{t}(\mNrm_{t})
+\leq \MPCmax_{t} \mNrm_{t}$.  (The difference is in the presence
+or absence of time subscripts on the MPC's.)
+We have therefore
+not proven (yet) that the sequence of value functions~\eqref{\localorexternallabel{eq:veqn}} defines a contraction mapping.
+
+Fortunately, the proof of that proposition is identical to the proof above, except that we must replace
+$\MPCmax$ with $\MPCmax_{T-1}$ and the \WRIC~must be
+replaced by a slightly stronger (but still quite weak) condition.  The place where these
+conditions have force is in the step at~\eqref{\localorexternallabel{eq:WRICBites}}.
+Consideration of the prior two equations reveals that
+a sufficient stronger condition is
+\begin{align*}
+  \pZero \DiscFac {(\Rfree (1-\MPCmax_{T-1}))}^{1-\CRRA}  & < 1
+  \\  {(\pZero \DiscFac)}^{1/(1-\CRRA)}  (1-\MPCmax_{T-1})  & > 1
+  \\  {(\pZero \DiscFac)}^{1/(1-\CRRA)}  (1-{(1+\MPSmin)}^{-1})  & > 1
+\end{align*}
+where we have used~\eqref{\localorexternallabel{eq:MPCmaxInv}} for $\MPCmax_{T-1}$ (and in the second step the reversal of the inequality occurs because we have assumed $\CRRA > 1$ so that we are exponentiating both sides by the negative number $1-\CRRA$).  To see that this is a weak condition, note that for small values of
+$\pZero$ this expression can be further simplified using ${(1+\MPSmin)}^{-1}
+\approx 1-\MPSmin$ so that it becomes
+\begin{align*}
+  {(\pZero \DiscFac)}^{1/(1-\CRRA)}  \MPSmin  & > 1
+  \\  (\pZero \DiscFac)  \pZero^{(1-\CRRA)/\CRRA} \RPFac^{1-\CRRA}  & < 1
+  \\  \DiscFac  \pZero^{1/\CRRA} \RPFac^{1-\CRRA}  & < 1.
+\end{align*}
+
+Calling the weak return patience factor $\RPFac^{\wp}=\wp^{1/\CRRA}\RPFac$ and recalling that the \WRIC~was $\RPFac^{\wp}<1$, the expression on the LHS above is $\DiscFac \RPFac^{-\CRRA}$ times the {\WRPFacDefn}.\@ Since we usually assume $\DiscFac$ not far below 1 and parameter values such that $\RPFac \approx 1$, this condition is clearly not very different from the \WRIC.\@
+
+The upshot is that under these slightly stronger conditions the value functions for the original problem define a contraction mapping in $\boundFunc-$bounded space with a unique $\vFunc(\mNrm)$.  But since $\lim_{n \rightarrow \infty} \MPCminmin_{T-n} = \MPCminmin$ and $\lim_{n \rightarrow \infty} \MPCmax_{T-n} = \MPCmax$, it must be the case that the $\vFunc(\mNrm)$ toward which these $\vFunc_{T-n}$'s are converging is the \textit{same} $\vFunc(\mNrm)$ that was the endpoint of the contraction defined by our operator $\TMap$.  Thus, under our slightly stronger (but still quite weak) conditions, not only do the value functions defined by~\eqref{\localorexternallabel{eq:veqn}} converge, they converge to the same unique $\vFunc$ defined by $\TMap$.\footnote{It seems likely that convergence of the value functions for the original problem could be proven even if only the \WRIC~were imposed; but that proof is not an essential part of the enterprise of this paper and is therefore left for future work.}
+
+%\href{https://econ-ark.github.io/BufferStockTheory/Appendices/ApndxEuclidian.pdf}{A brief supplemental appendix} demonstrates that convergence in $\boundFunc$-bounded space implies convergence in Euclidian space.
+
+\onlyinsubfile{\pagebreak\input{\LaTeXInputs/bibliography_blend}}
+
+\end{document}
+\endinput
+
+% Local Variables:
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  t  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) LaTeX/%s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "bibtex LaTeX/%s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% tex-bibtex-command: "bibtex ../LaTeX/*"
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=../LaTeX %S%(PDFout)"))
+% TeX-source-correlate-mode: t
+% TeX-parse-self: t
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n ../LaTeX/%o %b"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) ../LaTeX/%o"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
+% TeX-parse-all-errors: t
+% End:
