@@ -1,0 +1,88 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*- # Tell emacs the file type (for syntax coloring)
+
+\input{./.econtexRoot} % Set paths (like, \LaTeXInputs) to find resources
+\newcommand{\texname}{BufferStockTheory}% Keyname for the paper
+\providecommand{\versn}{pdf} % version -- pdf or Web 
+
+% Declare document with title page and table of contents (toc):
+\documentclass[titlepage, headings=optiontocandhead]{\econtex}
+\usepackage{subfiles} % Allow appendices, tables, etc as standalone subfiles
+
+% Extra custom packages
+\usepackage{\econark}      % Mostly shortcuts defining variables (LaTeX macros)
+\usepackage{\econtexSetup} % Gets, configures often-used packages
+\usepackage{\pdfsuppressruntime}
+
+\usepackage{\LaTeXInputs/\texname}% LaTeX shortcuts for whole paper
+
+% \econtexSetup sets boolean variable 'Web' to true if making html not pdf
+\ifthenelse{\boolean{Web}}{ % then
+  \setboolean{showPageHead}{false} % no pages, so no page head, on web
+}{ % else not for web
+  \usepackage{scrlayer-scrpage} % Package for page headers if PDF
+  \usepackage{caption} % allow suppression of appendix figures in NoAppendix PDF
+}
+
+\bibliographystyle{\econtexBibStyle} % Custom author (year) bib style
+
+\begin{document}
+
+% Redefine \onlyinsubfile command defined in \LaTeXInputs/\texname.sty:
+% This lets any subfile called from here know that it is not standalone
+% (So: if it is NOT called from here and IS standalone, knows it can make bib)
+\renewcommand{\onlyinsubfile}[1]{}\renewcommand{\notinsubfile}[1]{#1}
+
+\subfile{BufferStockTheory-NoAppendix} % Main body of paper
+
+\pagebreak
+\hypertarget{Appendices}{} % Creates link to [url-of-paper]#Appendices
+\ifthenelse{\boolean{Web}}{}{% Web version has no page headers
+  \chead[Appendices]{Appendices}      % but PDF version does
+  \appendixpage % Reset formatting for appendices
+} 
+
+\appendix % Declare beginning
+\addcontentsline{toc}{section}{Appendices} % print label "Appendices"
+
+\subfile{\ApndxDir/ApndxConcaveCFunc}
+\subfile{\ApndxDir/ApndxEuclidian}
+\subfile{\ApndxDir/ApndxLiqConstr}
+\subfile{\ApndxDir/ApndxLiqConstrAsLimit}
+\subfile{\ApndxDir/ApndxMPCLimits}
+\subfile{\ApndxDir/ApndxMTargetIsStable}
+%\subfile{\ApndxDir/ApndxCGroIsPermGroFac}
+%\subfile{\ApndxDir/ApndxSolnMethEndogGpts}
+%\subfile{\ApndxDir/ApndxSolnMethTermFunc}
+\subfile{\ApndxDir/ApndxConditionDiagrams}
+%\subfile{\ApndxDir/ApndxCGrowthDeclines}
+\subfile{\ApndxDir/ApndxBalancedGrowthcNrmAndCov}
+%\subfile{\ApndxDir/ApndxHarKmenberg}
+
+\pagebreak\input{\LaTeXInputs/bibliography_blend}\end{document}
+
+\sloppy
+
+\endinput
+
+\end{document}
+
+% Local Variables:
+% TeX-master-file: t
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "Biber"  TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) ../LaTeX/%s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX"    "bibtex ../LaTeX/%s"    TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode)  :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "bibtex ../LaTeX/%s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex LaTeX/%s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") t)
+% eval:  (add-to-list 'TeX-command-list '("BibTeX" "bibtex LaTeX/%s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") t)
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=./LaTeX %S%(PDFout)"))
+% TeX-source-correlate-mode: t
+% TeX-parse-self: t
+% TeX-parse-all-errors: t
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n LaTeX/%o %b"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) LaTeX/%o"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
+% End:

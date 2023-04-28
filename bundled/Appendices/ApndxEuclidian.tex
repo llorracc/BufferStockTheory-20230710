@@ -1,0 +1,78 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
+\input{./.econtexRoot}\input{\LaTeXInputs/econtex_onlyinsubfile}
+
+\onlyinsubfile{\externaldocument{\LaTeXGenerated/BufferStockTheory}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled;
+
+\begin{document}
+\section{Convergence in Euclidian Space}
+\subsection{Convergence of
+  \texorpdfstring{$\vFunc_{t}$}{vFunc-{t}}}\label{sec:vEuclidian}
+
+Boyd's theorem shows that $\TMap$ defines a contraction mapping
+in an $\boundFunc$-bounded space. We now show that $\TMap$ also
+defines a contraction mapping in Euclidian space.
+
+Calling $\vFunc^{\ast}$ the unique fixed point of the operator $\TMap$, since $\vFunc^{\ast }(\mNrm)=\TMap {\vFunc}^{\ast }(\mNrm)$,
+\begin{equation}
+\left\Vert \vFunc_{T-n+1}-\vFunc^{\ast }\right\Vert _{\boundFunc }\leq \Shrinker
+^{n-1}\left\Vert \vFunc_{T}-\vFunc^{\ast }\right\Vert _{\boundFunc }.
+\end{equation}%
+On the other hand, $\vFunc_{T}-\vFunc^{\ast }\in \mathcal{C}_{\boundFunc }\left( \mathscr{A},
+\mathscr{B}\right) $ and $\MPC =\left\Vert \vFunc_{T}-\vFunc^{\ast }\right\Vert_{\boundFunc }<\infty $ because $\vFunc_{T}$ and $\vFunc^{\ast }$ are in $\mathcal{C}_{\boundFunc
+}\left( \mathscr{A},\mathscr{B}\right) $. It follows that%
+\begin{equation}
+\left\vert \vFunc_{T-n+1}(\mNrm)-\vFunc^{\ast }(\mNrm)\right\vert \leq \MPC \Shrinker^{n-1}\left\vert \boundFunc(\mNrm)\right\vert.
+\end{equation}%
+Then we obtain
+\begin{equation}
+\underset{n\rightarrow \infty }{\lim }\vFunc_{T-n+1}(\mNrm)=\vFunc^{\ast }(\mNrm).
+\end{equation}
+
+Since $\vFunc_{T}(\mNrm)=\frac{\mNrm^{1-\CRRA }}{1-\CRRA }$, $\vFunc_{T-1}(\mNrm)\leq \frac{{\left(\MPCmax \mNrm\right)}^{1-\CRRA}}{1-\CRRA}<\vFunc_{T}(\mNrm)$. On the other hand, $\vFunc_{T-1}\leq \vFunc_{T}$
+means $\TMap\vFunc_{T-1}\leq \TMap\vFunc_{T}$, in other words, $\vFunc_{T-2}(\mNrm)\leq \vFunc_{T-1}(\mNrm)$.
+Inductively one gets $\vFunc_{T-n}(\mNrm)\geq \vFunc_{T-n-1}(\mNrm)$. This means that $\left\{
+\vFunc_{T-n+1}(\mNrm)\right\} _{n=1}^{\infty }$ is a decreasing sequence,
+bounded below by $\vFunc^{\ast}$.
+
+
+\subsection{Convergence of \texorpdfstring{$\cFunc_{t}$}{cFunc-{t}}}\label{subsec:cConverges}%\label{sec:cEuclidian}
+
+Given the proof that the value functions converge, we now show the
+pointwise convergence of consumption functions
+$\left\{\cFunc_{T-n+1}(\mNrm)\right\} _{n=1}^{\infty }$.
+
+Consider any convergent subsequence $\left\{\cFunc_{T-n(i)}(\mNrm)\right\}$ of $\left\{\cFunc_{T-n+1}(\mNrm)\right\} _{n=1}^{\infty }$ converging to $c^*$. By the definition of $\cFunc_{T-n}(\mNrm)$, we have
+\begin{equation}\begin{gathered}\begin{aligned}
+  \begin{split}
+    \uFunc(c_{T - n(i)}(\mNrm)) + & \DiscFac \Ex_{T - n(i)}[{\PermGroFac}_{T-n(i)+1}^{1 - \CRRA}\vFunc_{T-n(i)+1}(\mNrm)]  \\ & \geq  \uFunc(c_{T - n(i)}) + \DiscFac \Ex_{T - n(i)}[{\PermGroFac}_{T-n(i)+1}^{1 - \CRRA}\vFunc_{T-n(i)+1}(\mNrm)], 
+    \end{split}
+\end{aligned}\end{gathered}\end{equation}
+for any $\cNrm_{T - n(i)} \in [\MPCminmin \mNrm,\MPCmax \mNrm]$. Now letting $n(i)$ go to infinity, it follows that the left hand side converges to $\uFunc(\cNrm^*) + \DiscFac \Ex_{t}[{\PermGroFac}_{t}^{1 - \CRRA}\vFunc(\mNrm)]$, and the right hand side converges to $\uFunc(\cNrm_{T - n(i)}) + \DiscFac \Ex_{t}[{\PermGroFac}_{t}^{1 - \CRRA}\vFunc(\mNrm)]$. So the limit of the preceding inequality as $n(i)$ approaches infinity implies 
+\begin{equation}
+   \uFunc(\cNrm^*) + \DiscFac \Ex_{t}[{\PermGroFac}_{t + 1}^{1 - \CRRA}\vFunc(\mNrm)] \geq \uFunc(\cNrm_{T - n(i)}) + \DiscFac \Ex_{t}[{\PermGroFac}_{t + 1}^{1 - \CRRA}\vFunc(\mNrm)].
+\end{equation}
+Hence, $c^* \in \underset{\cNrm_{T - n(i)} \in [\MPCminmin \mNrm,\MPCmax \mNrm]}{\arg \max }\left\{ \uFunc(\cNrm_{T - n(i)}) + \DiscFac \Ex_{t}[{\PermGroFac}_{t + 1}^{1 - \CRRA}\vFunc(\mNrm)]\right\}$. By the uniqueness of $\cFunc(\mNrm)$, $c^* = \cFunc(\mNrm)$.
+
+
+
+\end{document}
+\endinput
+
+% Local Variables:
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  t  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (add-to-list '("Biber" "biber %s" TeX-run-Biber nil  t  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) LaTeX/%s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "bibtex LaTeX/%s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=../LaTeX %S%(PDFout)"))
+% TeX-source-correlate-mode: t
+% TeX-parse-self: t
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n ../LaTeX/%o %b"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) ../LaTeX/%o"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
+% TeX-parse-all-errors: t
+% End:

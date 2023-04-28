@@ -1,0 +1,14 @@
+% Could not get fonts to work right for svg version of this figure for web; so use png
+\ifthenelse{\boolean{Web}}{
+\begin{figure}[tbp]
+\centerline{\includegraphics[width=8in]{\FigDir/cNrmTargetFig.png}}
+\caption{`Stable' $\mNrm$ Values and Expected Growth Rates}
+\label{fig:cNrmTargetFig}
+\end{figure}
+}{
+\begin{figure}[tbp]
+\centerline{\includegraphics[width=6in]{\FigDir/cNrmTargetFig}}
+\caption{`Stable' (Target; Balanced Growth) $\mNrm$ Values}
+\label{fig:cNrmTargetFig}
+\end{figure}
+}

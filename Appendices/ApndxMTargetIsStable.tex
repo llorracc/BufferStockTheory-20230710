@@ -1,0 +1,361 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
+\input{./.econtexRoot}\input{\LaTeXInputs/econtex_onlyinsubfile}
+\onlyinsubfile{\externaldocument{\LaTeXGenerated/BufferStockTheory}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled;
+
+%\renewcommand{\LtxDir}{}
+\onlyinsubfile{\renewcommand{\LtxDir}{../LaTeX/}}
+
+%\renewcommand\LineNumber{\the\inputlineno}
+
+\begin{document}
+%{\linenumbers}
+
+\hypertarget{ApndxMTargetIsStable}{}
+\section{Unique and Stable Target and Steady State Points}\label{sec:ApndxMTargetIsStable}
+
+%\subsection{To Prove}
+
+% \end{document}\endinput
+This appendix proves Theorems~\ref{thm:target}-\ref{thm:MSSBalExists} and:
+\onlyinsubfile{\setcounter{theorem}{1}}
+
+  \begin{lemma}\label{lemma:orderingPartOne}
+  If $\BalGroFac{\mNrm}$ and $\TargetNrm{\mNrm}$ both exist, then $\BalGroFac{\mNrm} \leq \TargetNrm{\mNrm}$.
+  \end{lemma}
+
+  \begin{comment}
+  \begin{lemma}\label{lemma:orderingPartTwo}
+  If $\BalGroFac{\mNrm}$ and $\BalGroRte{\mNrm}$ both exist, then $\BalGroFac{\mNrm} \leq \BalGroRte{\mNrm}$.
+  \end{lemma}
+\end{comment}
+
+  \subsection{Proof of Theorem~\ref{thm:target}}
+\input{\econtexRoot/\EqDir/TheoremMTargetIsStable}
+  
+  The elements of the proof of Theorem~\ref{thm:target} are:
+\begin{itemize}
+\item Existence and continuity of $\Ex_t [{\mNrm}_{t+1}/\mNrm_t]$
+\item Existence of a point where $\Ex_t [{\mNrm}_{t+1}/\mNrm_t] = 1$
+\item $\Ex_t [{\mNrm}_{t+1}]-\mNrm_{t}$ is monotonically decreasing
+\end{itemize}
+
+%\end{document}\endinput
+
+\subsection{Existence and Continuity of
+  \texorpdfstring{$\Ex_t [{\mNrm}_{t+1}/\mNrm_t]$}{Ex-{t}[mNrm-{t+1}/mNrm-{t}]}}\label{subsubsec:RatExitsCont}
+The consumption function exists because we have imposed sufficient conditions (the $\WRIC$ and $\FVAC$; Theorem~\ref{thm:contmap}). % (Indeed, Appendix~\ref{sec:CIsTwiceDifferentiable} shows that $\cFunc(\mNrm)$ is not just continuous, but twice continuously differentiable.)
+
+Section~\ref{sec:cExists} shows that for all $t$, $\aNrm_{t-1} = {\mNrm}_{t-1} -  \cNrm_{t-1} > 0$.  Since ${\mNrm}_{t}= {\aNrm}_{t-1} \RNrm_{t} + \TranShkAll_{t}$, even if $\TranShkAll_{t}$ takes on its minimum value of 0, $\aNrm_{t-1} \RNrm_{t} > 0$, since both $\aNrm_{t-1}$ and $\RNrm_{t}$ are strictly positive.  With $\mNrm_{t}$ and $\mNrm_{t+1}$ both strictly positive, the ratio $\Ex_t [{\mNrm}_{t+1}/\mNrm_t]$ inherits continuity (and, for that matter, continuous differentiability) from the consumption function.
+
+\subsection{Existence of a point where
+  \texorpdfstring{$\Ex_t [{\mNrm}_{t+1}/\mNrm_t]=1$}
+  {Ex-t[mNrm-{t+1}/mNrm-{t}]=1}.}
+
+This follows from:
+\begin{enumerate}
+\item Existence and continuity of $\Ex_t [{\mNrm}_{t+1}/\mNrm_t]$ (just proven)
+  \item Existence a point where $\Ex_t [{\mNrm}_{t+1}/\mNrm_t] < 1$
+  \item Existence a point where $\Ex_t [{\mNrm}_{t+1}/\mNrm_t] > 1$
+    \item The Intermediate Value Theorem
+    \end{enumerate}
+
+\subsubsection{Existence of \texorpdfstring{$\mNrm$}{m} where \texorpdfstring{$\Ex_t [{\mNrm}_{t+1}/\mNrm_t] < 1$}{E[m{t+1}/m{t}}}
+    
+\textbf{If {\RIC} holds.}  Logic exactly parallel to that of Section~\ref{subsec:LimitsAsmtToInfty} leading to equation~\eqref{eq:xtp1toinfty}, but dropping the $\PermGroFac_{t+1}$ from the RHS, establishes that
+\begin{samepage}
+\begin{equation}\begin{gathered}\begin{aligned}
+  \lim_{\mNrm_{t} \uparrow \infty} \Ex_{t}[{\mNrm}_{t+1}/\mNrm_{t}]  & =   
+                                                                       \lim_{\mNrm_{t} \uparrow \infty} 
+                                                                       \Ex_{t}\left[\frac{{\mathcal{\mathcal{R}}}_{t+1}(\mNrm_{t}-\cFunc(\mNrm_{t}))+{\TranShkAll}_{t+1}}{\mNrm_{t}}\right] \notag 
+  \\  & = \Ex_{t}[(\Rfree/{\PermGroFac}_{t+1})\RPFac]  \notag
+  \\  & = \Ex_{t}[{\APFac}/{\PermGroFac}_{t+1}]  \label{eq:emgro}
+  \\  & < 1 \notag
+\end{aligned}\end{gathered}\end{equation}
+\end{samepage}
+where the inequality reflects imposition of the \GICMod~\eqref{eq:GICMod}.
+%\end{document}\endinput
+
+\textbf{If {\RIC} fails.}  When the {\RIC} fails, the fact that $\lim_{\mNrm^{\uparrow} \infty} \cFunc^{\prime}(\mNrm) = 0$ (see equation~\eqref{eq:MPCminInv}) means that the limit of the RHS of~\eqref{eq:emgro} as $\mNrm \uparrow \infty$ is $\bar{\RNrm}=\Ex_{t}[\RNrm_{t+1}]$.  In the next step of this proof, we will prove that the combination {\GICMod} and \cncl{\RIC} implies $\bar{\RNrm} < 1$.
+
+So we have $\lim_{\mNrm \uparrow \infty} \Ex_{t}[\mNrm_{t+1}/\mNrm_{t}] < 1$ whether the {\RIC} holds or fails.
+
+\medskip
+
+\subsubsection{Existence of \texorpdfstring{$\mNrm$}{m} > 1 where \texorpdfstring{$\Ex_t [{\mNrm}_{t+1}/\mNrm_t] > 1$}{E[m{t+1}/m{t}] > 1}}
+Paralleling the logic for $\cNrm$ in Section~\ref{subsec:LimitsAsmtToZero}: the ratio of $\Ex_{t}[\mNrm_{t+1}]$ to $\mNrm_{t}$ is unbounded above as $\mNrm_{t} \downarrow 0$ because $\lim_{\mNrm_{t}\downarrow 0} \Ex_{t}[\mNrm_{t+1}] > 0$.
+
+\medskip\medskip
+
+\noindent \textit{Intermediate Value Theorem}.  If $\Ex_t [{\mNrm}_{t+1}/\mNrm_t]$ is continuous, and takes on values above and below 1, there must be at least one point at which it is equal to one.
+
+\subsubsection{\texorpdfstring{$\Ex_t [{\mNrm}_{t+1}] -\mNrm_t$}{Delta m} is monotonically decreasing.}
+
+Now define \providecommand{\difFunc}{\pmb{\zeta}} $\difFunc(\mNrm_t) \equiv 
+\Ex_t[\mNrm_{t+1}] - \mNrm_t$ and note that
+\begin{equation}\begin{gathered}\begin{aligned}\label{eq:difNrmioEquiv}
+  \difFunc(\mNrm_t) < 0 &\leftrightarrow \Ex_t[{\mNrm}_{t+1}/\mNrm_t] < 1 
+                          \nonumber\\
+  \difFunc(\mNrm_t) = 0 &\leftrightarrow \Ex_t[{\mNrm}_{t+1}/\mNrm_t] = 1\\
+  \difFunc(\mNrm_t) > 0 &\leftrightarrow \Ex_t[{\mNrm}_{t+1}/\mNrm_t] > 
+                          1,\nonumber
+\end{aligned}\end{gathered}\end{equation}
+so that $\difFunc(\mTrgNrm)=0$. Our goal is to prove that $\difFunc(\bullet)$ is strictly 
+decreasing on $(0,\infty)$ using the fact that
+\begin{equation}\begin{gathered}\begin{aligned}
+  \difFunc^{\prime}(\mNrm_{t}) \equiv  \left( \frac{d}{d\mNrm_{t}}\right) \difFunc(\mNrm_t)  & = \Ex_{t}\left[
+                                                                                               \left( \frac{d}{d\mNrm_{t}}\right) \left( 
+                                                                                               {\RNrm}_{t+1}(\mNrm_{t}-\cFunc(\mNrm_{t}))+%
+                                                                                               {\TranShkAll}_{t+1} - {\mNrm}_t\right) \right] \label{eq:difFuncmNrmDecreases} \\
+                                                                                             & = \bar{\RNrm}\left(1-\cFunc^{\prime}({\mNrm}_t)\right) - 1.  \notag
+\end{aligned}\end{gathered}\end{equation}
+%\end{document}\endinput
+
+% Note that the statement of theorem~\ref{thm:target} did not require the {\RIC} to hold.
+Now, we show that (given our other assumptions) $\difFunc^{\prime}(\mNrm)$ is decreasing (but for different reasons) whether the {\RIC} holds or fails.
+
+\textbf{If {\RIC} holds}. Equation~\eqref{eq:MPCminDef} indicates that if the {\RIC} holds, then $\MPCmin >0$.  We show at the bottom of Section~\ref{sec:WRIC} that if the {\RIC} holds then $0 < \MPCmin < \cFunc^{\prime}(\mNrm_{t}) < 1$ so that 
+\begin{align*}
+  \bar{\RNrm}\left(1-\cFunc^{\prime}({\mNrm}_t)\right) - 1 & <  \bar{\RNrm}(1-\underbrace{(1-\RPFac)}_{\MPCmin}) - 1  \\
+                                                            & = \bar{\RNrm}\RPFac - 1 \\
+                                                            & = \Ex_{t}\left[\frac{\Rfree}{\PermGroFac \PermShk}\frac{\APFac}{\Rfree}\right] - 1 \\
+                                                            & = \underbrace{\Ex_{t}\left[\frac{\APFac}{\PermGroFac \PermShk}\right]}_{= \GPFacNrm} - 1 
+\end{align*}
+which is negative because the {\GICMod} says $\GPFacNrm < 1$.  
+%\end{document}\endinput
+
+\textbf{If {\RIC} fails.}
+Under \cncl{\RIC}, recall that $\lim_{\mNrm \uparrow \infty} \cFunc^{\prime}(\mNrm) = 0$.  Concavity of the consumption function means that $\cFunc^{\prime}$ is a decreasing function, so everywhere 
+\begin{align*}
+  \bar{\RNrm}\left(1-\cFunc^{\prime}({\mNrm}_t)\right) & < \bar{\RNrm}
+\end{align*}
+which means that $\difFunc^{\prime}(\mNrm_{t})$ from~\eqref{eq:difFuncmNrmDecreases} is guaranteed to be negative if
+\begin{equation}\begin{gathered}\begin{aligned}
+  \bar{\RNrm} \equiv \Ex_{t}\left[\frac{\Rfree}{\PermGroFac \PermShk}\right] & < 1  \label{eq:RbarBelowOne}.
+\end{aligned}\end{gathered}\end{equation}
+But the combination of the {\GICMod} holding and the {\RIC} failing can be written:
+\begin{align*}
+  \overbrace{\Ex_{t}\left[\frac{\APFac}{\PermGroFac \PermShk}\right]}^{\GPFacNrm} & < 1 < \overbrace{\frac{\APFac}{\Rfree}}^{{\RPFac}},
+\end{align*}
+and multiplying all three elements by $\Rfree/\APFac$ gives 
+\begin{align*}
+  \Ex_{t}\left[\frac{\Rfree}{\PermGroFac \PermShk}\right] & < \Rfree/\APFac < 1
+\end{align*}
+which satisfies our requirement in~\eqref{eq:RbarBelowOne}.
+
+%\end{document}\endinput
+  
+\subsection{Proof of Theorem~\ref{thm:MSSBalExists}}
+\input{\econtexRoot/\EqDir/TheoremMSSBalExists}
+
+The elements of the proof are:
+\begin{itemize}
+\item Existence and continuity of $\Ex_{t}[\PermShk_{t+1}\mNrm_{t+1}/\mNrm_t]$
+\item Existence of a point where $\Ex_{t}[\PermShk_{t+1}\mNrm_{t+1}/\mNrm_t] = 1$
+\item $\Ex_{t}[\PermShk_{t+1}\mNrm_{t+1}-\mNrm_{t}]$ is monotonically decreasing
+\end{itemize}
+
+\subsubsection{Existence and Continuity of the Ratio}% of $\TargetNrm{\mNrm}_{t+1}/\mNrm_{t}$.}
+
+Since by assumption $ 0 < \underline{\PermShk} \leq \PermShk_{t+1} \leq \bar{\PermShk} < \infty$, our proof in~\ref{subsubsec:RatExitsCont} that demonstrated existence and continuity of $\Ex_{t}[\mNrm_{t+1}/\mNrm_{t}]$ implies existence and continuity of $\Ex_{t}[\PermShk_{t+1}\mNrm_{t+1}/\mNrm_{t}]$.
+
+\subsubsection{Existence of a stable point}
+
+Since by assumption $ 0 < \underline{\PermShk} \leq \PermShk_{t+1} \leq \bar{\PermShk} < \infty$, our proof in Subsection~\ref{subsubsec:RatExitsCont} that the ratio of $\Ex_{t}[\mNrm_{t+1}]$ to $\mNrm_{t}$ is unbounded as $\mNrm_{t} \downarrow 0$ implies that the ratio $\Ex_{t}[\PermShk_{t+1}\mNrm_{t+1}]$ to $\mNrm_{t}$ is unbounded as $\mNrm_{t} \downarrow 0$.
+
+%\end{document}\endinput
+  
+The limit of the expected ratio as $\mNrm_{t}$ goes to infinity is most easily calculated by modifying the steps for the prior theorem explicitly:
+\begin{equation}\begin{gathered}\begin{aligned}
+  \lim_{\mNrm_{t} \uparrow \infty} \Ex_{t}[\PermShk_{t+1}\mNrm_{t+1}/\mNrm_{t}]  & =   
+                                                                  \lim_{\mNrm_{t} \uparrow \infty} 
+                                                                  \Ex_{t}\left[\frac{\PermGroFac_{t+1}\left((\Rfree/\PermGroFac_{t+1})\aFunc(\mNrm_{t})+{\TranShkAll}_{t+1}\right)/\PermGroFac}{\mNrm_{t}}\right] \notag 
+  \\   & =   \lim_{\mNrm_{t} \uparrow \infty} \Ex_{t}\left[
+         \frac{(\Rfree/\PermGroFac)\aFunc(\mNrm_{t})+\PermShk_{t+1}{\TranShkAll}_{t+1}}{\mNrm_{t}}
+         \right] \notag 
+  \\   & =   \lim_{\mNrm_{t} \uparrow \infty} \left[
+         \frac{(\Rfree/\PermGroFac)\aFunc(\mNrm_{t})+1}{\mNrm_{t}}
+         \right] \notag 
+  \\  & = (\Rfree/\PermGroFac)\RPFac \label{eq:emgro2}
+  \\  & = \GPFacRaw \notag
+  \\  & < 1 \notag
+\end{aligned}\end{gathered}\end{equation}
+where the last two lines are merely a restatement of the \GICRaw~\eqref{eq:GICRaw}.
+
+The Intermediate Value Theorem says that if $\Ex_{t}[\PermShk_{t+1}\mNrm_{t+1}/\mNrm_t]$ is continuous, and takes on values above and below 1, there must be at least one point at which it is equal to one.
+
+\subsubsection{\texorpdfstring{$\Ex_{t}[\PermShk_{t+1}\mNrm_{t+1}] -\mNrm_t$}{PermShk m{t+1} --- m{t}} is monotonically decreasing.}
+
+Define \providecommand{\difFunc}{\pmb{\zeta}} $\difFunc(\mNrm_t) \equiv 
+\Ex_t[\PermShk_{t+1}\mNrm_{t+1}] - \mNrm_t$ and note that
+\begin{equation}\begin{gathered}\begin{aligned}\label{eq:difLvlEquiv}
+  \difFunc(\mNrm_t) < 0 &\leftrightarrow \Ex_t[\PermShk_{t+1}\mNrm_{t+1}/\mNrm_{t}] < 1 
+                          \nonumber\\
+  \difFunc(\mNrm_t) = 0 &\leftrightarrow \Ex_t[\PermShk_{t+1}\mNrm_{t+1}/\mNrm_{t}] = 1\\
+  \difFunc(\mNrm_t) > 0 &\leftrightarrow \Ex_t[\PermShk_{t+1}\mNrm_{t+1}/\mNrm_{t}] > 
+                          1,\nonumber
+\end{aligned}\end{gathered}\end{equation}
+so that $\difFunc(\mTrgNrm)=0$. Our goal is to prove that $\difFunc(\bullet)$ is strictly 
+decreasing on $(0,\infty)$ using the fact that
+\begin{equation}\begin{gathered}\begin{aligned}
+  \difFunc^{\prime}(\mNrm_{t}) \equiv  \left( \frac{d}{d\mNrm_{t}}\right) \difFunc(\mNrm_t)  & = \Ex_{t}\left[
+                                                                                               \left( \frac{d}{d\mNrm_{t}}\right) \left( 
+                                                                                               {\RNrm}(\mNrm_{t}-\cFunc(\mNrm_{t}))+%
+                                                                                               {\PermShk}_{t+1}{\TranShkAll}_{t+1} - {\mNrm}_t\right) \right] \label{eq:difFuncDecreases} \\
+                                                                                             & = (\Rfree/\PermGroFac)\left(1-\cFunc^{\prime}({\mNrm}_t)\right) - 1.  \notag
+\end{aligned}\end{gathered}\end{equation}
+
+Now, we show that (given our other assumptions) $\difFunc^{\prime}(\mNrm)$ is decreasing (but for different reasons) whether the {\RIC} holds or fails (\cncl{\RIC}).
+
+\textbf{If {\RIC} holds}. Equation~\eqref{eq:MPCminDef} indicates that if the {\RIC} holds, then $\MPCmin >0$.  We show at the bottom of Section~\ref{sec:WRIC} that if the {\RIC} holds then $0 < \MPCmin < \cFunc^{\prime}(\mNrm_{t}) < 1$ so that 
+\begin{align*}
+  \RNrm\left(1-\cFunc^{\prime}({\mNrm}_t)\right) - 1 & <  \RNrm(1-\underbrace{(1-\RPFac)}_{\MPCmin}) - 1  \\
+                                                      & = (\Rfree/\PermGroFac)\RPFac - 1 
+\end{align*}
+which is negative because the {\GICRaw} says $\GPFacRaw < 1$.  
+\end{document}\endinput
+\textbf{If {\RIC} fails.}
+Under \cncl{\RIC}, recall that $\lim_{\mNrm \uparrow \infty} \cFunc^{\prime}(\mNrm) = 0$.  Concavity of the consumption function means that $\cFunc^{\prime}$ is a decreasing function, so everywhere 
+\begin{align*}
+  \RNrm\left(1-\cFunc^{\prime}({\mNrm}_t)\right) & < \RNrm
+\end{align*}
+which means that $\difFunc^{\prime}(\mNrm_{t})$ from~\eqref{eq:difFuncDecreases} is guaranteed to be negative if
+\begin{equation}\begin{gathered}\begin{aligned}
+  \RNrm \equiv (\Rfree/\PermGroFac) & < 1  \label{eq:FHWCFails}.
+\end{aligned}\end{gathered}\end{equation}
+
+But we showed in Section~\ref{subsec:UncertaintyModifiedConditions} that the only circumstances under which the problem has a nondegenerate solution while the {\RIC} fails were ones where the {\FHWC} also fails (that is,~\eqref{eq:FHWCFails} holds).
+
+\subsection{A Third Measure}
+
+A footnote in~Section~\ref{sec:convergedcfunc} mentions reasons why it may be useful to calculate $\Ex_{t}[\log (\mLvl_{t+1}/\log \mLvl_{t})]$.  Here we show that one way of doing that is to calculate a nonlinear adjustment factor for the expectation of the growth factor.
+\begin{align*}
+\log \left(\mLvl_{t+1}/\mLvl_{t}\right) & = \log (\PermGroFac \PermShk_{t+1} \mNrm_{t+1})- \log \mNrm_{t} 
+\\ & = \log \PermGroFac (\aNrm_{t}\RNrm+\PermShk_{t+1}\TranShk_{t+1})- \log \mNrm_{t} 
+\\ & = \log \PermGroFac (\aNrm_{t}\RNrm+1+(\PermShk_{t+1}\TranShk_{t+1}-1))- \log \mNrm_{t}
+\end{align*}
+
+Now define $\breve{\mNrm}_{t+1}=\aNrm_{t}\RNrm+1$, and compute the expectation:
+\begin{align*}
+  \Ex_{t}[\log \left(\mLvl_{t+1}/\mLvl_{t}\right)]
+   & = \Ex_{t}\left[\log \PermGroFac (\breve{\mNrm}_{t+1}+(\PermShk_{t+1}\TranShk_{t+1}-1))\right]- \log \mNrm_{t} 
+\\ & = \log \PermGroFac + \Ex_{t}\left[\log \breve{\mNrm}_{t+1}\left(1+(\PermShk_{t+1}\TranShk_{t+1}-1)\breve{\mNrm}_{t+1}^{-1}\right)\right]- \log \mNrm_{t} 
+\\ & = \underbrace{\log \PermGroFac + \log \breve{\mNrm}_{t+1} - \log \mNrm_{t}}_{\equiv \log \Ex_{t}[\mLvl_{t+1}/\mLvl_{t}]} + \Ex_{t}\left[ \log (1+(\PermShk_{t+1}\TranShk_{t+1}-1)\breve{\mNrm}_{t+1}^{-1})\right]
+\end{align*}
+and exponentiating tells us that
+\begin{equation}\begin{gathered}\begin{aligned}\label{eq:mBalLogVSmBalLvl}
+  \exp(\Ex_{t}[\log \mLvl_{t+1}/\mLvl_{t}]) & = \Ex_{t}[\mLvl_{t+1}/\mLvl_{t}]\exp( \Ex_{t}\left[ \log (1+(\PermShk_{t+1}\TranShk_{t+1}-1)\breve{\mNrm}_{t+1}^{-1})\right])
+\end{aligned}\end{gathered}\end{equation}
+and this latter factor is a number that approaches 1 from below as $\mNrm_{t}$ rises.  Thus the expected growth rate of the log is smaller than the log of the growth rate of the expected growth factor.  This implies that the $\mNrm$ at which `balanced growth' can be expected in the log, $\mBalLog$, exceeds the corresponding point for the ratio, $\mBalLvl$.
+
+Furthermore, in the limit as $\mLvl_{t}$ gets arbitrarily large, if the {\RIC} holds and thus $\MPCmin > 0$, $\aNrm_{t+1}$ rises without bound, as does $\breve{\mNrm}_{t+1}=\aNrm_{t+1}\RNrm+1$, so the approximation $\log (1+\epsilon) \approx \epsilon$ becomes arbitrarily good.  Consequently, the last term on the RHS of \eqref{eq:mBalLogVSmBalLvl} can be approximated as
+\begin{align*}
+  \Ex_{t}\left[ \log (1+(\PermShk_{t+1}\TranShk_{t+1}-1)\breve{\mNrm}_{t+1}^{-1})\right]) & \approx \Ex_{t}\left[ (\PermShk_{t+1}\TranShk_{t+1}-1)\breve{\mNrm}_{t+1}^{-1})\right])
+                                                                                            \\ & = 0
+\end{align*}
+
+This demonstrates that
+\begin{equation}\begin{gathered}\begin{aligned}
+  \lim_{\mLvl_{t} \uparrow \infty}   \exp(\Ex_{t}[\log \mLvl_{t+1}/\mLvl_{t}]) & = \Ex_{t}[\mLvl_{t+1}/\mLvl_{t}]
+\end{aligned}\end{gathered}\end{equation}
+% Abandoned efforts to prove that this target exists; it surely does, but that is not so easy to prove because it requires quantifying the competition between the fact that the first term being multiplied decreases with the fact that the second term increases.  
+
+\subsection{Proof of Lemma}%~\ref{lemma:orderingPartOne}-\ref{lemma:orderingPartTwo}}
+
+\subsubsection{Pseudo-Steady-State \texorpdfstring{$\mNrm$}{m} Is Smaller than Target \texorpdfstring{$\mNrm$}{m}}
+Designate
+\begin{equation}\begin{split}
+  \BalGroFac{\mFunc}_{t+1}(\aNrm) % = \Ex_{t}[\BalGroFac{\aNrm}\RNrm+\TranShk_{t+1}\PermShk_{t+1} ] \\
+   & = 1+\aNrm\RNrm
+\\  \TargetNrm{\mFunc}_{t+1}(\aNrm)% & = \Ex_{t}[\TargetNrm{\aNrm}(\RNrm/\PermShk_{t+1})+\TranShk_{t+1}\PermShk_{t+1} ] \\
+ & = 1+\aNrm\underbrace{\RNrm/\InvEPermShkInv}_{\bar{\RNrm} > \RNrm}
+\end{split}\end{equation}
+so that we can implicitly define the target and pseudo-steady-state points as
+\begin{equation}\begin{split}
+  \mTrgNrm & =\TargetNrm{\mFunc}_{t+1}(\mTrgNrm-\cFunc(\mTrgNrm))
+  \\ \mBalLvl & = \BalGroFac{\mFunc}_{t+1}(\mBalLvl-\cFunc(\mBalLvl))
+\end{split}\end{equation}
+Then subtract:
+\begin{equation}\begin{split}
+  \mTrgNrm - \mBalLvl %& =\TargetNrm{\mFunc}_{t+1}(\mTrgNrm-\cFunc(\mTrgNrm)) - \BalGroFac{\mFunc}_{t+1}(\mBalLvl-\cFunc(\mBalLvl))  
+%  \\  \mTrgNrm - \mBalLvl & =1+ (\mTrgNrm-\cFunc(\mTrgNrm))\RNrm/\InvEPermShkInv - (1+(\mBalLvl-\cFunc(\mBalLvl))\RNrm)
+ & = \left(\TargetNrm{\aNrm} \InvEPermShkInv^{-1} - \BalGroFac{\aNrm} \right)\RNrm 
+\\ & = \left({\aNrm}(\mTrgNrm) \InvEPermShkInv^{-1} - {\aNrm}(\mBalLvl) \right)\RNrm 
+\\ & = \left({\aNrm}(\mTrgNrm) \InvEPermShkInv^{-1} - \left({\aNrm}(\mTrgNrm+\mBalLvl-\mTrgNrm)\right) \right)\RNrm 
+\\ & \approx \left({\aNrm}(\mTrgNrm) \InvEPermShkInv^{-1} - \left({\aNrm}(\mTrgNrm)+(\mBalLvl-\mTrgNrm)\aFunc^{\prime}(\TargetNrm{\mNrm})\right) \right)\RNrm 
+%  \\ & = \left({\aNrm}(\mTrgNrm) \InvEPermShkInv^{-1} - {\aNrm}(\mTrgNrm)-(\mBalLvl-\mTrgNrm){\aNrm}^{\prime} \right)\RNrm
+%  \\ & = \left({\aNrm}(\mTrgNrm) \InvEPermShkInv^{-1} - {\aNrm}(\mTrgNrm)+(\mTrgNrm-\mBalLvl){\aNrm}^{\prime} \right)\RNrm
+  \\ (\mTrgNrm - \mBalLvl)(1-\underbrace{{\aNrm}^{\prime}(\mTrgNrm)\RNrm}_{< \GPFacRaw < 1}) & = (\InvEPermShkInv^{-1} - 1)\TargetNrm{\aNrm}\RNrm
+%\\ & = \left((\mTrgNrm-\cFunc(\mTrgNrm)) \InvEPermShkInv^{-1} - (\mBalLvl-\cFunc(\mTrgNrm+\mBalLvl-\mTrgNrm)) \right)\RNrm 
+%\\ & = \left((\mTrgNrm-\cFunc(\mTrgNrm)) \InvEPermShkInv^{-1} -( (\mBalLvl-\cFunc(\mTrgNrm)+(\mBalLvl-\mTrgNrm)\MPC)) \right)\RNrm 
+\end{split}\end{equation}
+The RHS of this equation is strictly positive because $\InvEPermShkInv^{-1}>1$ and both $\TargetNrm{\aNrm}$ and $\RNrm$ are positive; while on the LHS, $(1-\RNrm\aNrm^{\prime})>0$.  So the equation can only hold if $\TargetNrm{\mNrm}-\BalGroFac{\mNrm} > 0$.  That is, the target ratio exceeds the pseudo-steady-state ratio.\footnote{The use of the first order Taylor approximation could be substituted, cumbersomely, with the average of $\aFunc^{\prime}$ over the interval to remove the approximation in the derivations above.}
+
+\subsubsection{The \texorpdfstring{$\mNrm$}{m}  Achieving Individual Expected-Log-Balanced-Growth Is Smaller than the Individual Pseudo-Steady-State \texorpdfstring{$\mNrm$}{m}}
+
+Expected log balanced growth occurs when
+\begin{equation}\begin{split}
+    \Ex_{t}[\log \mLvl_{t+1}] & = \log \PermGroFac \mLvl_{t}
+\\      \Ex_{t}[\log \PermLvl_{t+1}\mNrm_{t+1}] & = \log \PermGroFac \PermLvl_{t} \mNrm_{t}
+\\      \Ex_{t}[\log \PermShk_{t+1}\mNrm_{t+1}] & = \log \PermGroFac \mNrm_{t}
+\\      \Ex_{t}[\log \left(\aNrm(\mNrm_{t})\Rfree+\PermShk_{t+1}\TranShk_{t+1}\PermGroFac\right)] & = \log \PermGroFac \mNrm_{t}
+\\      \Ex_{t}[\log \left(\aNrm(\mNrm_{t})\RNrm+\PermShk_{t+1}\TranShk_{t+1}\right)] & = \log \mNrm_{t}
+\end{split}\end{equation}
+and we call the $\mNrm$ that satisfies this equation $\BalGroRte{\mNrm}$.
+
+Subtract the definition of $\BalGroFac{\mNrm}$ from that of $\BalGroRte{\mNrm}$:
+\begin{equation}\begin{split}
+    \exp(\Ex_{t}[\log \left(\aNrm(\BalGroRte{\mNrm})\RNrm+\PermShk_{t+1}\TranShk_{t+1}\right)]) - (\aNrm(\BalGroFac{\mNrm})\RNrm+1 ) = \BalGroRte{\mNrm} - \BalGroFac{\mNrm}
+\end{split}\end{equation}
+
+Now we use the fact that the expectation of the log is less than the log of the expectation, 
+\begin{equation}\begin{split}
+%    \log \Ex_{t}[\aNrm(\BalGroRte{\mNrm}_{t})\RNrm+\PermShk_{t+1}\TranShk_{t+1}] & <     \log \left(\aNrm(\BalGroRte{\mNrm}_{t})\RNrm+1\right) \\
+ \exp(\Ex_{t}[\log \left(\aNrm(\BalGroRte{\mNrm})\RNrm+\PermShk_{t+1}\TranShk_{t+1}\right)]) & < \left(\aNrm(\BalGroRte{\mNrm})\RNrm+1    \right)
+\end{split}\end{equation}
+so
+\begin{equation}\begin{split}
+    \exp(\Ex_{t}[\log \left(\aNrm(\BalGroRte{\mNrm})\RNrm+1\right)]) - (\aNrm(\BalGroFac{\mNrm})\RNrm+1 ) < \BalGroRte{\mNrm} - \BalGroFac{\mNrm}
+\\    \left(\aNrm(\BalGroRte{\mNrm})\RNrm+1\right) - (\aNrm(\BalGroFac{\mNrm})\RNrm+1 ) < \BalGroRte{\mNrm} - \BalGroFac{\mNrm}    
+\\     (\aNrm(\BalGroRte{\mNrm})-\aNrm(\BalGroRte{\mNrm}+\BalGroFac{\mNrm}-\BalGroRte{\mNrm}))\RNrm& < \BalGroRte{\mNrm} - \BalGroFac{\mNrm}
+\\     (\aNrm(\BalGroRte{\mNrm})-(\aNrm(\BalGroRte{\mNrm})+(\BalGroFac{\mNrm}-\BalGroRte{\mNrm})\bar{\aFunc}^{\prime})\RNrm& < \BalGroRte{\mNrm} - \BalGroFac{\mNrm}
+\\     (\BalGroRte{\mNrm}-\BalGroFac{\mNrm})\bar{\aFunc}^{\prime}\RNrm& < \BalGroRte{\mNrm} - \BalGroFac{\mNrm}
+\\     \underbrace{\bar{\aFunc}^{\prime}\RNrm}_{< \GPFacRaw} & < 1
+\end{split}\end{equation}
+where we are interpreting $\bar{\aFunc}^{\prime}$ as the mean of the value of $\aFunc^{\prime}$ over the interval between $\BalGroRte{\mNrm}$ and $\BalGroFac{\mNrm}$.
+\begin{comment}
+\subsection{Comment}
+
+Due to the model's nonlinearities the values of $\mNrm$ at which the expected growth rate of $\cLvl$ matches $\PermGroFac$ is very slightly different from the $\mNrm$ at which the growth rate at which expected growth of $\mLvl$ is $\PermGroFac$.  Defining $\grave{\mNrm}$ as the $\mNrm$ at which $\Ex_{t}[\cLvl_{t+1}/\cLvl_{t}]=\PermGroFac$, we can show that to first order $\grave{\mNrm} \approx \BalGroFac{\mNrm}.$
+\begin{align*}
+  \Ex_{t}[\cFunc(\mNrm_{t+1})\PermShk_{t+1}] & = \cFunc(\mNrm_{t}) \label{eq:balgrostableC}.
+%  \\ \Ex_{t}[\cFunc(\mNrm_{t+1})\PermShk_{t+1}] & = \cFunc(\mNrm_{t}) 
+  \\ \Ex_{t}[\left(\cFunc(\grave{\mNrm})+\cFunc^{\prime}(\grave{\mNrm})(\mNrm_{t+1}-\grave{\mNrm})\right)\PermShk_{t+1}] & \approx \cFunc(\grave{\mNrm})
+  \\ \Ex_{t}[\left(\cFunc^{\prime}(\grave{\mNrm})(\mNrm_{t+1}-\grave{\mNrm})\right)\PermShk_{t+1}] & \approx 0
+  \\ \Ex_{t}[\mNrm_{t+1}] & \approx \grave{\mNrm} 
+\end{align*}
+but at $\mNrm=\BalGroFac{\mNrm}$, $\Ex_{t}[\mNrm_{t+1}]=\TargetNrm{\mNrm}\approx\grave{\mNrm}$.
+\end{comment}
+
+\end{document}
+\endinput
+
+% Local Variables:
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "Biber"  TeX-command-list)) TeX-command-list))
+% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex ../LaTeX/%s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") t)
+% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex ../LaTeX/%s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") t)
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=../LaTeX %S%(PDFout)"))
+% TeX-source-correlate-mode: t
+% TeX-parse-self: t
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n ../LaTeX/%o %b"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) ../LaTeX/%o"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
+% TeX-parse-all-errors: t
+% End:

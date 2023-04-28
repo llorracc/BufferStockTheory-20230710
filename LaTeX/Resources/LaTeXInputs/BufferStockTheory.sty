@@ -1,0 +1,129 @@
+% Define a few objects that are unique to the BST paper
+\input{\ResourcesDir/owner} % Owned by llorracc (draft) or econ-ark (published) ?
+% Allow different actions depending on whether document is being processed as
+% subfile or being process as standalone
+\providecommand{\onlyinsubfile}{}\renewcommand{\onlyinsubfile}[1]{#1}
+\providecommand{\notinsubfile}{}\renewcommand{\notinsubfile}[1]{}
+
+% Create links to explanations in text
+\newcommand{\BSTpaperLink}{https://\owner.github.io/BufferStockTheory/BufferStockTheory3.html} % Frame 3
+
+% Suffix of Defn indicates reference to text name and source doc definition
+\newcommand{\FHWC}{\hyperlink{FHWC}{\textrm{FHWC}}}
+\newcommand{\FHWFacDefn}{\hyperlink{FHWFacDefn}{\textrm{FHWF}}}
+\newcommand{\GICRaw}{\hyperlink{GICRaw}{\textrm{GIC}}}
+\newcommand{\GPFacRawDefn}{\hyperlink{GPFacRawDefn}{\textrm{GPF}}}
+\newcommand{\GPFacModDefn}{\hyperlink{GPFacModDefn}{\textrm{GPF-Mod}}}
+\newcommand{\GICMod}{\hyperlink{GICMod}{\textrm{GIC-Mod}}}
+\newcommand{\GICHarm}{\hyperlink{GICHarm}{\textrm{GIC-Harm}}}
+\newcommand{\GICSdl}{\hyperlink{GICSdl}{\textrm{GIC-Szeidl}}}
+\newcommand{\RIC}{\hyperlink{RIC}{\textrm{RIC}}}
+\newcommand{\PFFVAC}{\hyperlink{PFFVAC}{\textrm{PF-FVAC}}}
+\newcommand{\PFVAFacDefn}{\hyperlink{PFVAFacDefn}{\textrm{PF-VAF}}}
+\newcommand{\FVAC}{\hyperlink{FVAC}{\textrm{FVAC}}}
+\newcommand{\VAFacDefn}{\hyperlink{VAFacDefn}{\textrm{VAF}}}
+%\newcommand{\APFacDefn}{\hyperlink{APFacDefn}{\textrm{APF}}}
+\newcommand{\RPFacDefn}{\hyperlink{RPFacDefn}{\textrm{RPF}}}
+\newcommand{\AIC}{\hyperlink{AIC}{\textrm{AIC}}}
+\newcommand{\WRPFacDefn}{\hyperlink{WRPFacDefn}{\textrm{WRPF}}}
+\newcommand{\WRIC}{\hyperlink{WRIC}{\textrm{WRIC}}}
+
+% Control whether subsection is displayed at top of page of PDF 
+\newboolean{showPageHead}
+\setboolean{showPageHead}{true}
+
+% Terms unique to BufferStockTheory paper 
+\newcommand{\usual}{}
+
+\newcommand{\BoydT}{\mathsf{T}} % Contraction mapping operator
+\newcommand{\Shrinker}{\alpha}  % Contraction mapping shrinker
+\providecommand{\boundFunc}{\ensuremath{\digamma}} % Boyd bounding function
+\providecommand{\AMPS}{}\renewcommand{\AMPS}{\avg{\aFunc}^{\prime}} % Average MPS
+\providecommand{\AMPSP}{{\avg{\aFunc}^{\prime\prime}}} % Average MPS prime
+
+\newcommand{\cNrmAvg}{\mathfrak{c}}
+
+% Harmenberg items
+\newcommand{\Nvrnt}{F} % Invariant CDF
+\newcommand{\nvrnt}{f} % invariant PDF
+\newcommand{\Harm}{\tilde} % Harmenberg uses tilde 
+\newcommand{\HarmWide}{\widetilde}
+
+\providecommand{\pHarm}{p} % Probability density of permanent income
+
+% Declare registers for manipulation of tables (to fit page)
+\newsavebox{\TblBox}
+\newlength{\TblShrunk}
+\newsavebox{\TblShrunkBox}
+\usepackage{footmisc,datetime2,refcount,xr-hyper,hhline,rotating,subfigure,makecell}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+
+
+\providecommand{\BalGroFac}{\check} % Balanced growth factor
+\providecommand{\BalGroRte}{\tilde} % Balanced growth rate (log change)
+\providecommand{\TargetNrm}{\hat}   % Target 
+\providecommand{\ABalLvl}{\BalGroFac{\ALvl}} % m where mLvl grows by PermGroFac
+\providecommand{\mBalLvl}{\BalGroFac{\mNrm}} % m where mLvl grows by PermGroFac
+\providecommand{\MBalLvl}{\BalGroFac{\MNrm}} % m where MLvl grows by PermGroFac
+\providecommand{\mBalLog}{\BalGroRte{\mNrm}} % m where mLog grows by PermGroRte
+\providecommand{\mTrgNrm}{\TargetNrm{\mNrm}} % m where E[m_{t+1}]=m_{t}
+
+% % Create links to explanations in text
+\providecommand{\BSTpaperLink}{https://\owner.github.io/BufferStockTheory/BufferStockTheory3.html} % Frame 3
+
+% % Suffix of Defn indicates reference to text name and source doc definition
+\providecommand{\FHWC}{\hyperlink{FHWC}{\textrm{FHWC}}}
+% %\newcommand{\FHWFacDefn}{\hyperlink{FHWFacDefn}{\textrm{FHWF}}}
+\providecommand{\FHWFacDefn}{\hyperlink{FHWFacDefn}{\textrm{FHWF}}}
+\providecommand{\GICRaw}{\hyperlink{GICRaw}{\textrm{GIC}}}
+\providecommand{\GPFacRawDefn}{\hyperlink{GPFacRawDefn}{\textrm{GPF}}}
+\providecommand{\GPFacModDefn}{\hyperlink{GPFacModDefn}{\textrm{GPF-Mod}}}
+\providecommand{\GICMod}{\hyperlink{GICMod}{\textrm{GIC-Mod}}}
+\providecommand{\GICHarm}{\hyperlink{GICHarm}{\textrm{GIC-Harm}}}
+\providecommand{\GICSdl}{\hyperlink{GICSdl}{\textrm{GIC-Szeidl}}}
+\providecommand{\RIC}{\hyperlink{RIC}{\textrm{RIC}}}
+\providecommand{\PFFVAC}{\hyperlink{PFFVAC}{\textrm{PF-FVAC}}}
+\providecommand{\PFVAFacDefn}{\hyperlink{PFVAFacDefn}{\textrm{PF-VAF}}}
+\providecommand{\FVAC}{\hyperlink{FVAC}{\textrm{FVAC}}}
+\providecommand{\VAFacDefn}{\hyperlink{VAFacDefn}{\textrm{VAF}}}
+\providecommand{\APFacDefn}{\hyperlink{APFacDefn}{\textrm{APF}}}
+\providecommand{\RPFacDefn}{\hyperlink{RPFacDefn}{\textrm{RPF}}}
+\providecommand{\AIC}{\hyperlink{AIC}{\textrm{AIC}}}
+\providecommand{\WRPFacDefn}{\hyperlink{WRPFacDefn}{\textrm{WRPF}}}
+\providecommand{\WRIC}{\hyperlink{WRIC}{\textrm{WRIC}}}
+
+
+\renewcommand{\BalGroFac}{\check} % Balanced growth factor
+\renewcommand{\BalGroRte}{\tilde} % Balanced growth rate (log change)
+\renewcommand{\TargetNrm}{\hat}   % Target 
+\renewcommand{\ABalLvl}{\BalGroFac{\ALvl}} % m where mLvl grows by PermGroFac
+\renewcommand{\mBalLvl}{\BalGroFac{\mNrm}} % m where mLvl grows by PermGroFac
+\renewcommand{\MBalLvl}{\BalGroFac{\MNrm}} % m where MLvl grows by PermGroFac
+\renewcommand{\mBalLog}{\BalGroRte{\mNrm}} % m where mLog grows by PermGroRte
+\renewcommand{\mTrgNrm}{\TargetNrm{\mNrm}} % m where E[m_{t+1}]=m_{t}
+
+% Create links to explanations in text
+\renewcommand{\BSTpaperLink}{https://\owner.github.io/BufferStockTheory/BufferStockTheory3.html} % Frame 3
+
+% Suffix of Defn indicates reference to text name and source doc definition
+\renewcommand{\FHWC}{\hyperlink{FHWC}{\textrm{FHWC}}}
+%\renewcommand{\FHWFacDefn}{\hyperlink{FHWFacDefn}{\textrm{FHWF}}}
+\renewcommand{\FHWFacDefn}{\hyperlink{FHWFacDefn}{\textrm{FHWF}}}
+\renewcommand{\GICRaw}{\hyperlink{GICRaw}{\textrm{GIC}}}
+\renewcommand{\GPFacRawDefn}{\hyperlink{GPFacRawDefn}{\textrm{GPF}}}
+\renewcommand{\GPFacModDefn}{\hyperlink{GPFacModDefn}{\textrm{GPF-Mod}}}
+\renewcommand{\GICMod}{\hyperlink{GICMod}{\textrm{GIC-Mod}}}
+\renewcommand{\GICHarm}{\hyperlink{GICHarm}{\textrm{GIC-Harm}}}
+\renewcommand{\GICSdl}{\hyperlink{GICSdl}{\textrm{GIC-Szeidl}}}
+\renewcommand{\RIC}{\hyperlink{RIC}{\textrm{RIC}}}
+\renewcommand{\PFFVAC}{\hyperlink{PFFVAC}{\textrm{PF-FVAC}}}
+\renewcommand{\PFVAFacDefn}{\hyperlink{PFVAFacDefn}{\textrm{PF-VAF}}}
+\renewcommand{\FVAC}{\hyperlink{FVAC}{\textrm{FVAC}}}
+\renewcommand{\VAFacDefn}{\hyperlink{VAFacDefn}{\textrm{VAF}}}
+\renewcommand{\APFacDefn}{\hyperlink{APFacDefn}{\textrm{APF}}}
+\renewcommand{\RPFacDefn}{\hyperlink{RPFacDefn}{\textrm{RPF}}}
+\renewcommand{\AIC}{\hyperlink{AIC}{\textrm{AIC}}}
+\renewcommand{\WRPFacDefn}{\hyperlink{WRPFacDefn}{\textrm{WRPF}}}
+\renewcommand{\WRIC}{\hyperlink{WRIC}{\textrm{WRIC}}}

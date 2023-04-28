@@ -1,0 +1,9 @@
+  \begin{equation}\iflabelexists{eq:DBCparts}{}{\label{eq:DBCparts}} % Don't define it if already defined
+    \begin{split}
+      \aLvl_{t}     & = \mLvl_{t}-\cLvl_{t}
+      \\     \kLvl_{t+1}   & = \aLvl_{t} \notag
+      \\      \bLvl_{t+1}    & = \kLvl_{t+1} \Rfree \notag \\
+      \PermLvl_{t+1}  & = \PermLvl_{t} \underbrace{\PermGroFac\PermShk_{t+1}}_{\equiv \PermGroFac_{t+1}} \notag \\
+      \mLvl_{t+1}  & =  \bLvl_{t+1} +\PermLvl_{t+1}\TranShkAll_{t+1},\notag
+    \end{split}
+  \end{equation}
