@@ -7,9 +7,9 @@
 
 \begin{comment}
 Consider any configuration of parameter values under which, with the variance of permanent shocks equal to zero, the {\GICRaw} holds exactly:
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \GICRaw & = 1 = \exp\left(\tilde{\Ex}[\log \PermShk]\right)
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 \end{comment}
 
 \section{Harmenberg's Method}\label{sec:ApndxHarKmenberg}
@@ -41,7 +41,7 @@ Consider any configuration of parameter values under which, with the variance of
 \newcommand{\mNrmVec}{\mathrm{m}}
 \newcommand{\mNrmNow}{\mNrm_{t}}
 \newcommand{\mNrmNxt}{\mNrm_{t+1}}
-\newcommand{\Bot}{\underline}
+\newcommand{\Bot}{\ushort}
 \newcommand{\mNrmNxtBot}{\Bot{\mNrm}_{t+1}}
 \newcommand{\PermShkNow}{\PermShk_{t}}
 \newcommand{\PermShkPrbNxt}{\PermShk_{t+1}}
@@ -78,13 +78,13 @@ where
   \end{align*}
 
 \cite{harmenbergInvariant}'s first equation corresponds to the marginal density obtained by differentiating the above CDF with respect to $\mNrmNxt$ and $\PermLvlPrbNxt$ and says that the `Markov operator that maps a distribution $\mpPrb \in D(\mNrm \times \PermLvlPrb)$ to the next-period $\mpPrb$' (that is, defines the dynamics of the joint marginal distribution of $\mNrm$ and $\PermLvlPrb$) is given by
-\begin{equation}\begin{gathered}\begin{aligned} \label{eq:MeasTrnst}
+\begin{align} \label{eq:MeasTrnst}
 \mpPrb_{t+1}(\mNrmNxt,\PermLvlPrbNxt) & =
                                           \int_{\PermLvlPrbNow} \left[
                                            \int_{\mNrmNow} \lomdkPrb_{t}\left(\mNrmNxt,\mNrmNow,
                                            \overbrace{\frac{\PermLvlPrbNxt}{\PermGroFac \PermLvlPrbNow}}^{\PermShkPrbNxt}\right)\PermShkRawPrb(\frac{\PermLvlPrbNxt}{\PermGroFac \PermLvlPrbNow})\mpPrb_{t}(\mNrmNow,\PermLvlPrbNow)\left(\frac{1}{\PermGroFac \PermLvlPrbNow}\right)  d \mNrmNow
                                           \right] d \PermLvlPrbNow
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 \newcommand{\nPermShk}{\texttt{i}}\newcommand{\nmNrmVecNow}{\texttt{j}}\newcommand{\nmNrmVecNxt}{\texttt{k}}\newcommand{\nPermLvlNow}{\texttt{n}}\newcommand{\nPermLvlNxt}{\texttt{q}}
 
 \newcommand{\nPermLvlVecNow}{\texttt{n}}\newcommand{\nPermLvlVecNxt}{\texttt{q}}\newcommand{\nPermShkNxtFunc}{\iota(\nPermLvlVecNow,\nPermLvlVecNxt)}\newcommand{\nPermShkVecNxt}{\texttt{i}}
@@ -114,47 +114,47 @@ then for a person whose location is described in period $t$ as being at permanen
 \end{aligned}\end{equation}
 where $\mNrmVec_{t+1}[\nmNrmVecNxt]$ is the $\nmNrmVecNxt$'th element of the vector $\mNrmVec_{t+1}$, $\PermLvlVec_{t+1}[\nPermLvlVecNxt]$ is the $\nPermLvlVecNxt$'th element of $\PermLvlVec_{t+1}$, and $\nPermShkNxtFunc$ is a function that calculates the index value of $\nPermShk$ that would achieve the transition from $\PermLvlVecNow$ to $\PermLvlVec_{t+1}[\nPermLvlVecNxt]$.\footnote{Of course, unless the is highly unlikely that $\nPermShkNxtFunc$ would yield an integer unless the elements of $\nPermLvlVecNxt$ were chosen as the unique elements defined by all possible combinations of $\PermLvlVec_{t}$ and $\PermShkVec$; one option is to allocate probabilities in proportion to distance to the nearest integer values of $\nPermShkNxtFunc$ above and below the current point.  (There are other options, which may not be meaningfully better).}$^{,}$\footnote{The $1/\PermGroFac\PermLvlNow$ is present in the continuous version but not the discrete version because the latter captures masses and the former captures densities.}
 Harmenberg defines 
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
      \mpPrbMargRaw_{t}(\mNrmNow) := & \int_{\PermLvlPrbNow} \mpPrb_{t}(\mNrmNow,\PermLvlPrbNow) d \PermLvlPrbNow
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 which measures the population density of persons whose market resources are $\mNrmNow$.  In matrix terms, the corresponding representation is:
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
      \mpMatMargRaw_{t}[\nmNrmVecNow] = & \sum_{\nPermLvlVecNow} \mpMat_{t}[\nmNrmVecNow,\nPermLvlVecNow] 
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 which makes it easy to see that $\mpMatMargRaw_{t}[\nmNrmVecNow]$ just measures the total probability mass associated with all possible levels of permanent income for agents at $\mNrmVec_{t}^{\nmNrmVecNow}$.  That is, it tells us \textit{how many agents} have $\mNrmNow=\mNrmVecNow$.
 
 In order to compute the absolute aggregate \textit{amount} of market resources $\mLvlNow$ (boldface indicates levels) owned by people with a market resources \textit{ratio} of $\mNrmVecNow$, we need to know the total \textit{amount} of permanent income accruing to those people:
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \mLvlNow[\nmNrmVecNow] & = \mNrmVecNow \underbrace{\sum_{\nPermLvlVecNow} \PermLvlVecNow\mpMat_{t}[\nmNrmVecNow,\nPermLvlVecNow]}_{\equiv  \mpMatMargWgt[\nmNrmVecNow]\PermGroFac^{t}}
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 where $\mpMatMargWgt[\nmNrmVecNow]$ is what Harmenberg calls the Permanent Income Weighted measure.  Under the assumption that aggregate permanent income was 1.0 in period 0 and has grown by the factor $\PermGroFac$ thereafter, the following direct formula for $\mpMatMargWgt$ can be seen to capture the \textit{proportion of aggregate permanent income earned} by people at the given $\mNrmNow$:
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \mpMatMargWgt[\nmNrmVecNow] & = \PermGroFac^{-t} \sum_{\nPermLvlVecNow} \PermLvlVecNow\mpMat_{t}[\nmNrmVecNow,\nPermLvlVecNow]
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
 
 
 With this in hand, it is a simple matter to compute the total aggregate mass of $\MLvl$:
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \MLvl_{t} & = \PermGroFac^{t} \sum_{\nmNrmVecNow} \mNrmVecNow \mpMatMargWgt[\nmNrmVecNow]
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 or for that matter consumption:
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \CLvl_{t} & = \PermGroFac^{t} \sum_{\nmNrmVecNow} \cFunc(\mNrmVecNow) \mpMatMargWgt[\nmNrmVecNow]
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
 Harmenberg formulates his corresponding propositions in the continuous description of the problem using probability measures, e.g.:
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \mpPrbMargWgt_{t}(\mNrmNow) & = \int_{\PermLvlNow} \PermLvlNow \mpPrb(\mNrmNow,\PermLvlNow) d \PermLvlNow
 \\ \CLvl_{t} & = \PermGroFac^{t} \int_{\mNrmNow} \cFunc(\mNrmNow) \mpPrbMargWgt(\mNrmNow)                             d \mNrmNow
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
 The point here is `that the permanent-income-weighted distribution is a sufficient statistic for computing aggregate consumption, aggregate savings, and similar aggregate variables'.  Thus, rather than requiring us to keep track of the multidimensional joint distribution over $\mNrm$ and $\PermLvl$, we need only know the distribution of permanent-income-weighted $\mNrm$.
 
 The crucial last step is to define the law of motion for the weighted system.  In the continuous formulation, Harmenberg shows (his Theorem 1) that, if we define a `permanent-income-shock-weighted' version of the original permanent shock distribution\footnote{(Harmenberg calls this the `permanent-income-neutral measure,' which is slightly confusing as it does not involve the level of permanent income but only the shocks thereto).} as
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \PermShkWgtPrb(\PermShkPrbNxt) & = \PermShkPrbNxt \PermShkRawPrb(\PermShkPrbNxt)
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 then the laws of motion are respectively given by 
 \begin{equation}\begin{aligned}
   \mpPrbMargRaw_{t+1}(\mNrmNxt) & = \int_{\mNrmNow} \int_{\PermShkPrbNxt} \lomdkPrb(\mNrmNxt,\mNrmNow,\PermShkPrbNxt) \mpPrbMargRaw_{t}(\mNrmNow) \PermShkRawPrb(\PermShkPrbNxt) d \PermShkPrbNxt d \mNrmNow
@@ -166,16 +166,16 @@ then the laws of motion are respectively given by
 The key steps in the proof are the change in variables in which $\PermShk_{t+1}=\PermLvlNxt/(\PermGroFac \PermLvlNow)$ and a change in the order of integration which is permitted by \href{https://en.wikipedia.org/wiki/Fubini\%27s_theorem}{Fubini's theorem}.
 
 Omitting the $\PermGroFac$ term (equivalently, setting it to $\PermGroFac=1$), the discrete version of the proof is \renewcommand{\PermGroFac}{}
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \mpMatMargWgt[\nmNrmVecNxt] & = \sum_{\nPermLvlVecNxt} \PermLvlVecNxt\mpMat_{t+1}[\nmNrmVecNxt,\nPermLvlVecNxt]
 \\   & \approx \sum_{\nPermLvlVecNxt} \sum_{\nmNrmVecNow} \sum_{\nPermLvlVecNow} \PermLvlVecNxt \lomdkMat(\nmNrmVecNxt,\nmNrmVecNow,\nPermLvlVecNxt) \PermShkWgtVec(\nPermShkNxtFunc)  \mpMat_{t}(\nmNrmVecNow,\nPermLvlVecNow)
 %  \\   & = \sum_{\nmNrmVecNow} \sum_{\nPermLvlVecNxt} \sum_{\nPermLvlVecNow} \PermLvlVecNxt \lomdkMat(\nmNrmVecNxt,\nmNrmVecNow,\nPermLvlVecNxt) \PermShkWgtVec(\nPermShkNxtFunc) \mpMat_{t}(\nmNrmVecNow,\nPermLvlVecNow)/\PermLvlVecNow
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 % where the last step corresponds to the change in the order of integration in Harmenberg's proof (
 and the $\approx$ captures the fact that in the discrete context the necessity to allocate masses to points on the grid will lead to approximation error.
 
 The change of variables is accomplished by realizing that just as there was an $\iota$ that gave us the appropriate $\PermShk$ required to get from $\PermLvlNow$ to $\PermLvlNxt$, we can define a $\koppa(\nPermLvlNow,\nPermShkVecNxt)$ that lets us approximate the $\nPermLvlNxt$ needed as an argument to $\lomdkMat$ and the index for $\PermLvlVecNxt$.  Now we can sum over the permanent shocks indexed by $\nPermShkVecNxt$:
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \mpMatMargRaw[\nmNrmVecNxt] & =
                                 \sum_{\nmNrmVecNow}
                                 \sum_{\nPermShkVecNxt}
@@ -185,7 +185,7 @@ The change of variables is accomplished by realizing that just as there was an $
                                 \sum_{\nmNrmVecNow}
                                 \sum_{\nPermShkVecNxt}
                                 \PermLvlVec_{t+1}^{\koppa(\nPermLvlNow,\nPermShkVecNxt)} \lomdkMat(\nmNrmVecNxt,\nmNrmVecNow,\koppa(\nPermLvlNow,\nPermShkVecNxt)) \PermShkRawVec(\nPermShkVecNxt) \mpMatMarg_{t}(\nmNrmVecNow)
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 where he second line follows because the summation of $\mpMat_{t}(\nmNrmVecNow,\nPermLvlVecNow)$ is over $\nPermLvlVecNow$ is exactly the step that yields $\mpMatMarg(\mNrmVecNow)$.
 
 The steps for the permanent-income-weighted version of the proposition are identical, with the substitution of weighted for unweighted versions of the various probability objects.
@@ -203,19 +203,19 @@ The steps for the permanent-income-weighted version of the proposition are ident
 
 \begin{comment}
 One way to think about Harmenberg's key insight is to note that if we rewrite \eqref{eq:MeasTrnst} as an explicit function of the transitory and permanent shocks then the integrand becomes
-\begin{equation}\begin{gathered}\begin{aligned} 
+\begin{align} 
 %  \mpPrb_{t+1}(\mNrmNxt,\PermShkPrbNxt\pLvl_{t}) & =
                                            \lomdkPrb_{t}\left(\overbrace{(\mNrmNow-\cNrm_{t})/(\Rfree \PermShkPrbNxt) + \PermShkPrbNxt\TranShkNxt}^{\mNrmNxt},\mNrmNow,
 \PermShkPrbNxt\right)\PermShkRawPrb(\PermShkPrbNxt)\mpPrb_{t}(\mNrmNow,\PermLvlPrbNow)/(\PermGroFac \PermShkPrbNxt) \label{eq:integrand}
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 or 
-\begin{equation}\begin{gathered}\begin{aligned} 
+\begin{align} 
 \tilde{\lomdkPrb}_{t}\left(\TranShkNxt(\mNrmNxt),\mNrmNow,
 \PermShkPrbNxt\right)\PermShkRawPrb(\PermShkPrbNxt)\mpPrb_{t}(\mNrmNow,\PermLvlNow)/(\PermGroFac \PermShkPrbNxt) \label{eq:integrand}
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
 But since neither of the first two terms in the integrand \eqref{eq:integrand} involves $\pLvl$ we can change the order of integration 
-\begin{equation}\begin{gathered}\begin{aligned} 
+\begin{align} 
 \mpPrbMarg_{t+1}(\mNrmNxt) & = \int_{\mNrmNow} \left[
   \int_{\PermShkPrbNxt}  \left(
   \int_{\TranShkNxt} 
@@ -224,27 +224,27 @@ But since neither of the first two terms in the integrand \eqref{eq:integrand} i
   \mpPrbMarg_{t}(\mNrmNow) \Prb_{\TranShkNxt}(\TranShkNxt)d \TranShkNxt  
   \right) \PermShkRawPrb(\PermShkPrbNxt) d \PermShkPrbNxt\right]
 \mathsf{}                                                        d \mNrmNow
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
  \log \GPFacRaw & < \sum_{\nPermLvlVecNow} \sum_{\nPermLvlVecNxt} \log\left( \PermShkPrbNxt[\nPermShkNxtFunc] \right) \PermShkPrbNxt[\nPermShkNxtFunc] \Prb_{\PermShk}(\PermShkPrbNxt[\nPermShkNxtFunc]) 
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
 \end{comment}
 
 \pagebreak
 Definition 2:  The permanent-income-weighted distribution is defined as 
 \newcommand{\mpPrbMargAlt}{\tilde{\mpPrb}^{\mNrm}}
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \mpPrbMargAlt_{t}(\mNrmNow) & = \PermGroFac^{-t} \int_{\PermLvl} \PermLvlNow \mpPrb_{t}(\mNrmNow,\PermLvlNow) d\PermLvlNow
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \mpPrbMargAlt_{t}[\nmNrmVecNow] & = \PermGroFac^{-t} \sum_{\nPermLvlVecNow} \PermLvlNow[\nPermLvlVecNow] \mpPrb_{t}[\nmNrmVecNow,\nPermLvlVecNow] 
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
 So aggregate consumption is
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \CLvl_{t} & = \int_{\PermLvlNow} \left(\int_{\mNrmNow} \cNrm(\mNrmNow) \PermLvlNow \mpPrb_{t}(\mNrmNow,\PermLvlNow)  d  \mNrmNow\right) d \PermLvlNow \\
   l\CLvl_{t} & = \int_{\PermLvlNow} \left(\int_{\mNrmNow} \log (\cNrm(\mNrmNow) \PermLvlNow) \mpPrb_{t}(\mNrmNow,\PermLvlNow)  d  \mNrmNow\right) d \PermLvlNow \\
   \\  l\CLvl_{t} & = \int_{\mNrmNow} \underbrace{\left(\int_{\PermLvlNow} (\log \cNrm(\mNrmNow)+\log \PermLvlNow) \mpPrb_{t}(\mNrmNow,\PermLvlNow) d \PermLvlNow   \right)}_{\equiv \ell \mpPrbMargAlt(\mNrmNow)} d\mNrmNow
@@ -252,14 +252,14 @@ So aggregate consumption is
   \\             & = \int_{\mNrmNow} \left(\int_{\PermLvlNow} \cNrm(\mNrmNow) \PermLvlNow \mpPrb_{t}(\mNrmNow,\PermLvlNow) d \PermLvlNow   \right) d\mNrmNow           \\   
 \\            & = \int_{\mNrmNow} \cNrm(\mNrmNow)\underbrace{\left(\int_{\PermLvlNow} \PermLvlNow \mpPrb_{t}(\mNrmNow,\PermLvlNow) d \PermLvlNow   \right)}_{\equiv \mpPrbMargAlt(\mNrmNow)\PermGroFac^{t}} d\mNrmNow
 \\  \CLvl_{t} & = \PermGroFac^{t} \int_{\mNrmNow} \cNrm_{t} (\mNrmNow) \mpPrbMargAlt(\mNrmNow) d\mNrmNow
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 or 
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \CLvl_{t}  & = \PermGroFac^{t}\sum_{\nmNrmVecNow} \cNrm(\mNrmNow[\nmNrmVecNow])\mpPrbMargAlt[\nmNrmVecNow]
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
 Theorem 1:  The laws of motion for $\mpPrbMarg$ and $\mpPrbMargAlt$ are given by 
-\begin{equation}\begin{gathered}\begin{aligned} 
+\begin{align} 
   \mpPrbMarg_{t+1}(\mNrmNxt) & = \int_{\PermShkPrbNxt} \left[
                                \int_{\mNrmNow} \lomdkPrb_{t}
                                \left(
@@ -268,9 +268,9 @@ Theorem 1:  The laws of motion for $\mpPrbMarg$ and $\mpPrbMargAlt$ are given by
                                d \mNrmNow
                                \right]
                                d \PermShkPrbNxt
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
-\begin{equation}\begin{gathered}\begin{aligned} 
+\begin{align} 
   \mpPrbMargAlt_{t+1}(\mNrmNxt) & = \int_{\PermShkPrbNxt} \left[
                                \int_{\mNrmNow} \lomdkPrb_{t}
                                \left(
@@ -279,39 +279,39 @@ Theorem 1:  The laws of motion for $\mpPrbMarg$ and $\mpPrbMargAlt$ are given by
                                d \mNrmNow
                                \right]
                                d \PermShkPrbNxt
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
 Proposition 2:  There is a stable invariant permanent-income-weighted distribution $\mpPrbMargAlt$ if
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \log[\Rfree (1- \MPC)] & < \tilde{\Ex}\log[\PermGroFac \PermShkPrbNxt]
 \\ \log \GPFacRaw & < \tilde{\Ex}\log[ \PermShkPrbNxt]
 \\ \log \GPFacRaw & < \int_{\PermShk} \log[ \PermShkPrbNxt] \PermShkPrbNxt f(\PermShkPrbNxt) d \PermShkPrbNxt
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
 
 \pagebreak
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   l\bar{\mNrm}_{t} & = \PermGroFac^{t} \int_{\mNrm} l\bar{\mNrm} \mpPrbMargAlt(\mNrm) d \mNrm
   \\ & =                    \PermGroFac^{t} \tilde{\mathbb{M}}[l\mNrm]
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   & = \int_{\PermLvlNow} \left(\int_{\mNrmNow} \log \left(\aNrm(\mNrmNow) \PermLvlNow\right) \mpPrb_{t}(\mNrmNow,\PermLvlNow)  d  \mNrmNow\right) d \PermLvlNow \\
  & = \int_{\mNrmNow} \left(\int_{\PermLvlNow} \log\left(\aNrm(\mNrmNow) \PermLvlNow\right) \mpPrb_{t}(\mNrmNow,\PermLvlNow) d \PermLvlNow   \right) d\mNrmNow           \\   
  & = \int_{\mNrmNow} \log \aNrm(\mNrmNow)\underbrace{\left(\int_{\PermLvlNow} (\log \PermLvlNow) \mpPrb_{t}(\mNrmNow,\PermLvlNow) d \PermLvlNow   \right)}_{\equiv \ell \mpPrbMargAlt(\mNrmNow)\log \PermGroFac^{t}} d\mNrmNow              
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \tilde{\Ex}[(\log \aNrm_{t+1} - \log \PermGroFac \aNrm_{t})] &
  = \Ex\left[ \tilde{\Ex}[(\log \aNrm_{t+1} - \log \PermGroFac \aNrm_{t})] + \right]
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
 
 
 
-\begin{equation}\begin{gathered}\begin{aligned} 
+\begin{align} 
   \mpPrb_{t+1}[\nmNrmVecNxt,\nPermLvl] & = \sum_{\nPermShk} \left[\sum_{\nmNrmVecNow} \lomdkMat_{t}\left(\mNrmNxt,\mNrmNow,\overbrace{\frac{\PermLvlNxt}{\PermGroFac \PermLvlNow}}^{\PermShkPrbNxt}\right)\PermShkRawPrb(\frac{\PermLvlNxt}{\PermGroFac \PermLvlNow})\mpPrb_{t}(\mNrmNow,\PermLvlNow)  d \mNrmNow \right] d \PermShkPrbNxt  
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
 
 % Local Variables:

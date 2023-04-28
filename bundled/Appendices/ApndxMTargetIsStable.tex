@@ -64,14 +64,14 @@ This follows from:
     
 \textbf{If {\RIC} holds.}  Logic exactly parallel to that of Section~\ref{subsec:LimitsAsmtToInfty} leading to equation~\eqref{eq:xtp1toinfty}, but dropping the $\PermGroFac_{t+1}$ from the RHS, establishes that
 \begin{samepage}
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \lim_{\mNrm_{t} \uparrow \infty} \Ex_{t}[{\mNrm}_{t+1}/\mNrm_{t}]  & =   
                                                                        \lim_{\mNrm_{t} \uparrow \infty} 
                                                                        \Ex_{t}\left[\frac{{\mathcal{\mathcal{R}}}_{t+1}(\mNrm_{t}-\cFunc(\mNrm_{t}))+{\TranShkAll}_{t+1}}{\mNrm_{t}}\right] \notag 
   \\  & = \Ex_{t}[(\Rfree/{\PermGroFac}_{t+1})\RPFac]  \notag
   \\  & = \Ex_{t}[{\APFac}/{\PermGroFac}_{t+1}]  \label{eq:emgro}
   \\  & < 1 \notag
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 \end{samepage}
 where the inequality reflects imposition of the \GICMod~\eqref{eq:GICMod}.
 %\end{document}\endinput
@@ -93,22 +93,22 @@ Paralleling the logic for $\cNrm$ in Section~\ref{subsec:LimitsAsmtToZero}: the 
 
 Now define \providecommand{\difFunc}{\pmb{\zeta}} $\difFunc(\mNrm_t) \equiv 
 \Ex_t[\mNrm_{t+1}] - \mNrm_t$ and note that
-\begin{equation}\begin{gathered}\begin{aligned}\label{eq:difNrmioEquiv}
+\begin{align}\label{eq:difNrmioEquiv}
   \difFunc(\mNrm_t) < 0 &\leftrightarrow \Ex_t[{\mNrm}_{t+1}/\mNrm_t] < 1 
                           \nonumber\\
   \difFunc(\mNrm_t) = 0 &\leftrightarrow \Ex_t[{\mNrm}_{t+1}/\mNrm_t] = 1\\
   \difFunc(\mNrm_t) > 0 &\leftrightarrow \Ex_t[{\mNrm}_{t+1}/\mNrm_t] > 
                           1,\nonumber
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 so that $\difFunc(\mTrgNrm)=0$. Our goal is to prove that $\difFunc(\bullet)$ is strictly 
 decreasing on $(0,\infty)$ using the fact that
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \difFunc^{\prime}(\mNrm_{t}) \equiv  \left( \frac{d}{d\mNrm_{t}}\right) \difFunc(\mNrm_t)  & = \Ex_{t}\left[
                                                                                                \left( \frac{d}{d\mNrm_{t}}\right) \left( 
                                                                                                {\RNrm}_{t+1}(\mNrm_{t}-\cFunc(\mNrm_{t}))+%
                                                                                                {\TranShkAll}_{t+1} - {\mNrm}_t\right) \right] \label{eq:difFuncmNrmDecreases} \\
                                                                                              & = \bar{\RNrm}\left(1-\cFunc^{\prime}({\mNrm}_t)\right) - 1.  \notag
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 %\end{document}\endinput
 
 % Note that the statement of theorem~\ref{thm:target} did not require the {\RIC} to hold.
@@ -130,9 +130,9 @@ Under \cncl{\RIC}, recall that $\lim_{\mNrm \uparrow \infty} \cFunc^{\prime}(\mN
   \bar{\RNrm}\left(1-\cFunc^{\prime}({\mNrm}_t)\right) & < \bar{\RNrm}
 \end{align*}
 which means that $\difFunc^{\prime}(\mNrm_{t})$ from~\eqref{eq:difFuncmNrmDecreases} is guaranteed to be negative if
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \bar{\RNrm} \equiv \Ex_{t}\left[\frac{\Rfree}{\PermGroFac \PermShk}\right] & < 1  \label{eq:RbarBelowOne}.
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 But the combination of the {\GICMod} holding and the {\RIC} failing can be written:
 \begin{align*}
   \overbrace{\Ex_{t}\left[\frac{\APFac}{\PermGroFac \PermShk}\right]}^{\GPFacNrm} & < 1 < \overbrace{\frac{\APFac}{\Rfree}}^{{\RPFac}},
@@ -157,16 +157,16 @@ The elements of the proof are:
 
 \subsubsection{Existence and Continuity of the Ratio}% of $\TargetNrm{\mNrm}_{t+1}/\mNrm_{t}$.}
 
-Since by assumption $ 0 < \underline{\PermShk} \leq \PermShk_{t+1} \leq \bar{\PermShk} < \infty$, our proof in~\ref{subsubsec:RatExitsCont} that demonstrated existence and continuity of $\Ex_{t}[\mNrm_{t+1}/\mNrm_{t}]$ implies existence and continuity of $\Ex_{t}[\PermShk_{t+1}\mNrm_{t+1}/\mNrm_{t}]$.
+Since by assumption $ 0 < \ushort{\PermShk} \leq \PermShk_{t+1} \leq \bar{\PermShk} < \infty$, our proof in~\ref{subsubsec:RatExitsCont} that demonstrated existence and continuity of $\Ex_{t}[\mNrm_{t+1}/\mNrm_{t}]$ implies existence and continuity of $\Ex_{t}[\PermShk_{t+1}\mNrm_{t+1}/\mNrm_{t}]$.
 
 \subsubsection{Existence of a stable point}
 
-Since by assumption $ 0 < \underline{\PermShk} \leq \PermShk_{t+1} \leq \bar{\PermShk} < \infty$, our proof in Subsection~\ref{subsubsec:RatExitsCont} that the ratio of $\Ex_{t}[\mNrm_{t+1}]$ to $\mNrm_{t}$ is unbounded as $\mNrm_{t} \downarrow 0$ implies that the ratio $\Ex_{t}[\PermShk_{t+1}\mNrm_{t+1}]$ to $\mNrm_{t}$ is unbounded as $\mNrm_{t} \downarrow 0$.
+Since by assumption $ 0 < \ushort{\PermShk} \leq \PermShk_{t+1} \leq \bar{\PermShk} < \infty$, our proof in Subsection~\ref{subsubsec:RatExitsCont} that the ratio of $\Ex_{t}[\mNrm_{t+1}]$ to $\mNrm_{t}$ is unbounded as $\mNrm_{t} \downarrow 0$ implies that the ratio $\Ex_{t}[\PermShk_{t+1}\mNrm_{t+1}]$ to $\mNrm_{t}$ is unbounded as $\mNrm_{t} \downarrow 0$.
 
 %\end{document}\endinput
   
 The limit of the expected ratio as $\mNrm_{t}$ goes to infinity is most easily calculated by modifying the steps for the prior theorem explicitly:
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \lim_{\mNrm_{t} \uparrow \infty} \Ex_{t}[\PermShk_{t+1}\mNrm_{t+1}/\mNrm_{t}]  & =   
                                                                   \lim_{\mNrm_{t} \uparrow \infty} 
                                                                   \Ex_{t}\left[\frac{\PermGroFac_{t+1}\left((\Rfree/\PermGroFac_{t+1})\aFunc(\mNrm_{t})+{\TranShkAll}_{t+1}\right)/\PermGroFac}{\mNrm_{t}}\right] \notag 
@@ -179,7 +179,7 @@ The limit of the expected ratio as $\mNrm_{t}$ goes to infinity is most easily c
   \\  & = (\Rfree/\PermGroFac)\RPFac \label{eq:emgro2}
   \\  & = \GPFacRaw \notag
   \\  & < 1 \notag
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 where the last two lines are merely a restatement of the \GICRaw~\eqref{eq:GICRaw}.
 
 The Intermediate Value Theorem says that if $\Ex_{t}[\PermShk_{t+1}\mNrm_{t+1}/\mNrm_t]$ is continuous, and takes on values above and below 1, there must be at least one point at which it is equal to one.
@@ -188,22 +188,22 @@ The Intermediate Value Theorem says that if $\Ex_{t}[\PermShk_{t+1}\mNrm_{t+1}/\
 
 Define \providecommand{\difFunc}{\pmb{\zeta}} $\difFunc(\mNrm_t) \equiv 
 \Ex_t[\PermShk_{t+1}\mNrm_{t+1}] - \mNrm_t$ and note that
-\begin{equation}\begin{gathered}\begin{aligned}\label{eq:difLvlEquiv}
+\begin{align}\label{eq:difLvlEquiv}
   \difFunc(\mNrm_t) < 0 &\leftrightarrow \Ex_t[\PermShk_{t+1}\mNrm_{t+1}/\mNrm_{t}] < 1 
                           \nonumber\\
   \difFunc(\mNrm_t) = 0 &\leftrightarrow \Ex_t[\PermShk_{t+1}\mNrm_{t+1}/\mNrm_{t}] = 1\\
   \difFunc(\mNrm_t) > 0 &\leftrightarrow \Ex_t[\PermShk_{t+1}\mNrm_{t+1}/\mNrm_{t}] > 
                           1,\nonumber
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 so that $\difFunc(\mTrgNrm)=0$. Our goal is to prove that $\difFunc(\bullet)$ is strictly 
 decreasing on $(0,\infty)$ using the fact that
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \difFunc^{\prime}(\mNrm_{t}) \equiv  \left( \frac{d}{d\mNrm_{t}}\right) \difFunc(\mNrm_t)  & = \Ex_{t}\left[
                                                                                                \left( \frac{d}{d\mNrm_{t}}\right) \left( 
                                                                                                {\RNrm}(\mNrm_{t}-\cFunc(\mNrm_{t}))+%
                                                                                                {\PermShk}_{t+1}{\TranShkAll}_{t+1} - {\mNrm}_t\right) \right] \label{eq:difFuncDecreases} \\
                                                                                              & = (\Rfree/\PermGroFac)\left(1-\cFunc^{\prime}({\mNrm}_t)\right) - 1.  \notag
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
 Now, we show that (given our other assumptions) $\difFunc^{\prime}(\mNrm)$ is decreasing (but for different reasons) whether the {\RIC} holds or fails (\cncl{\RIC}).
 
@@ -220,9 +220,9 @@ Under \cncl{\RIC}, recall that $\lim_{\mNrm \uparrow \infty} \cFunc^{\prime}(\mN
   \RNrm\left(1-\cFunc^{\prime}({\mNrm}_t)\right) & < \RNrm
 \end{align*}
 which means that $\difFunc^{\prime}(\mNrm_{t})$ from~\eqref{eq:difFuncDecreases} is guaranteed to be negative if
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \RNrm \equiv (\Rfree/\PermGroFac) & < 1  \label{eq:FHWCFails}.
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
 But we showed in Section~\ref{subsec:UncertaintyModifiedConditions} that the only circumstances under which the problem has a nondegenerate solution while the {\RIC} fails were ones where the {\FHWC} also fails (that is,~\eqref{eq:FHWCFails} holds).
 
@@ -243,9 +243,9 @@ Now define $\breve{\mNrm}_{t+1}=\aNrm_{t}\RNrm+1$, and compute the expectation:
 \\ & = \underbrace{\log \PermGroFac + \log \breve{\mNrm}_{t+1} - \log \mNrm_{t}}_{\equiv \log \Ex_{t}[\mLvl_{t+1}/\mLvl_{t}]} + \Ex_{t}\left[ \log (1+(\PermShk_{t+1}\TranShk_{t+1}-1)\breve{\mNrm}_{t+1}^{-1})\right]
 \end{align*}
 and exponentiating tells us that
-\begin{equation}\begin{gathered}\begin{aligned}\label{eq:mBalLogVSmBalLvl}
+\begin{align}\label{eq:mBalLogVSmBalLvl}
   \exp(\Ex_{t}[\log \mLvl_{t+1}/\mLvl_{t}]) & = \Ex_{t}[\mLvl_{t+1}/\mLvl_{t}]\exp( \Ex_{t}\left[ \log (1+(\PermShk_{t+1}\TranShk_{t+1}-1)\breve{\mNrm}_{t+1}^{-1})\right])
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 and this latter factor is a number that approaches 1 from below as $\mNrm_{t}$ rises.  Thus the expected growth rate of the log is smaller than the log of the growth rate of the expected growth factor.  This implies that the $\mNrm$ at which `balanced growth' can be expected in the log, $\mBalLog$, exceeds the corresponding point for the ratio, $\mBalLvl$.
 
 Furthermore, in the limit as $\mLvl_{t}$ gets arbitrarily large, if the {\RIC} holds and thus $\MPCmin > 0$, $\aNrm_{t+1}$ rises without bound, as does $\breve{\mNrm}_{t+1}=\aNrm_{t+1}\RNrm+1$, so the approximation $\log (1+\epsilon) \approx \epsilon$ becomes arbitrarily good.  Consequently, the last term on the RHS of \eqref{eq:mBalLogVSmBalLvl} can be approximated as
@@ -255,9 +255,9 @@ Furthermore, in the limit as $\mLvl_{t}$ gets arbitrarily large, if the {\RIC} h
 \end{align*}
 
 This demonstrates that
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \lim_{\mLvl_{t} \uparrow \infty}   \exp(\Ex_{t}[\log \mLvl_{t+1}/\mLvl_{t}]) & = \Ex_{t}[\mLvl_{t+1}/\mLvl_{t}]
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 % Abandoned efforts to prove that this target exists; it surely does, but that is not so easy to prove because it requires quantifying the competition between the fact that the first term being multiplied decreases with the fact that the second term increases.  
 
 \subsection{Proof of Lemma}%~\ref{lemma:orderingPartOne}-\ref{lemma:orderingPartTwo}}
